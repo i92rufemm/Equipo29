@@ -28,6 +28,7 @@ public:
     inline list<string> getPremios()const{return premios_;}
     inline vector<Sendero> getSenderos()const{return senderos_;}
     inline vector<Ruta> getRutas()const{return rutas_;}
+    inline void setNombre(string nombreparque){nombreparque_ = nombreparque;}
     inline void setSuperficie(float superficie){superficie_ = superficie;}
     inline void setUbicacion(float ubicacion){ubicacion_ = ubicacion;}
     inline void setLocalizacion(string localizacion){localizacion_ = localizacion;}

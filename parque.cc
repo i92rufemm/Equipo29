@@ -1,9 +1,9 @@
 #include "parque.h"
 using namespace std;
 
-Parque::Parque(string nombreparque_,float superficie_,float ubicacion_,string localizacion_)
+Parque::Parque(string nombreparque,float superficie,float ubicacion,string localizacion)
 {
-    nombreparque_ = nombreparque;
+    setNombre(nombreparque);
     superficie_ = superficie;
     ubicacion_ = ubicacion;
     localizacion_ = localizacion;
