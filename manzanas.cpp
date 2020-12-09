@@ -1,1 +1,0 @@
-Hola vendo manzanas bartass
