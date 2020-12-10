@@ -8,6 +8,7 @@
 #include "Monitor.h"
 using namespace std;
 
+
 Monitor:: Monitor(){
 	Nombre_='0';
 	Apellidos_= '0';
@@ -17,23 +18,29 @@ Monitor:: Monitor(){
 	Telefono_=0;
 }
 
+//Inicializo los valores de la estructuera monitor
+
+
 string Monitor::setNombre(){
 	cout<<"Nombre: ";
 	cin>>Nombre_;
-}
+} //Funcion para introducir el nombre
+
 
 void Monitor::getNombre(){
 	cout<<"Nombre: "<<Nombre_<<"\n";
-}
+} //Funcion para obtener el nombre del Monitor seleccionado
+
 
 string Monitor::setApellidos(){
 	cout<<"Apellidos: ";
 	cin>>Apellidos_;
-}
+} //Funcion para introducir apellidos del monitor 
+
 
 void Monitor::getApellidos(){
 	cout<<"Apellidos: "<<Apellidos_<<"\n";
-}
+} //Funcion para obtener los apellidos del Monitor seleccionado
 
 float Monitor::setFecha(){
 	cout<<"Fecha: ";
