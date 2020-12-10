@@ -74,9 +74,30 @@ bool Ruta::setHora( const int hora, const int minuto){
 
 bool Ruta::setMonitor( const Monitor monitor){
 
-    vector <struct Fecha> ocupacion;
+    struct Fecha aux;
 
-    ocupacion = monitor.getFechas() 
+    vector <Fecha> ocupacion;
+
+    ocupacion = monitor.getFechas();
+
+    aux = getFecha();
+
+    for( std:: list<Fecha>::iterator i = ocupacion.begin(); i != ocupacion.end(); i++ ){
+
+        if( (*i).dia == aux.dia &&  (*i).mes == aux.mes && (*i).anio == aux.anio ){
+
+            return false;
+        }
+
+    }
+
+        monitor_ = monitor;
+        
+        return true;
+
+}
+
+
 
 
 }
