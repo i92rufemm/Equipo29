@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ruta.h"
 
+using namespace std;
 
 Ruta::Ruta( int numeroDeRuta, Monitor monitor){
 
@@ -215,7 +216,7 @@ int Ruta::deleteSendero(const string codigo){
     return -2;
 }
 
-int deleteSendero(const Sendero sendero){
+int Ruta::deleteSendero(const Sendero sendero){
 
     if( senderos_.empty() ){
 			return -1;
@@ -234,7 +235,7 @@ int deleteSendero(const Sendero sendero){
 }
 
 
-void imprimirClientes(){
+void Ruta::imprimirClientes(){
 
     sort(clientes_.begin(), clientes_.end(), sortByApellidos);
 
