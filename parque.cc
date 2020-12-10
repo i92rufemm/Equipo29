@@ -26,21 +26,21 @@ bool Parque::addPremios(string premios){
     }
     return false;
 }
-bool Parque::addSendero(Sendero senderos){
-    for(list<Sendero>::iterator it = senderos_.begin(); it != senderos_.end(); it++){
-        if(it->getCodigo() == senderos.getCodigo()){
+bool Parque::addSendero(Sendero sendero){
+    for(vector<Sendero>::iterator it = senderos_.begin(); it != senderos_.end(); it++){
+        if(it->getCodigo() == sendero.getCodigo()){
             cout << "El sendero ya esta registrado" << endl;
             return false;
         }
     }
-    senderos_.push_back(senderos);
+    senderos_.push_back(sendero);
     cout << "El sendero ha sido registrado" << endl;
     return true;
 }
-Ruta Parque::Cancelar_ruta(Ruta rutas){
+bool Parque::Cancelar_ruta(Ruta ruta){
 
     for(vector<Ruta>::iterator it = rutas_.begin(); it != rutas_.end();it++){
-        if(it->getNumeroruta() == rutas.getNumeroruta()){
+        if(it->getNumero() == ruta.getNumero()){
             rutas_.erase(it);
             cout << "La ruta ha sido cancelada con exito" << endl;
             return true;
