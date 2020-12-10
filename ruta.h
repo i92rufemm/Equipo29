@@ -46,7 +46,7 @@ class Ruta{
         bool setLongitud();
         bool setFecha(const int dia, const int mes, const int anio, list<Fecha> fechas ); // setFecha(5,2,2020, parque.getFechas() );
         bool setHora( const int hora, const int minuto);
-        bool setMonitor( const Monitor monitor);
+        bool setMonitor(Monitor monitor);
         bool setAforo( const int aforo);
         bool setDuracion(const int duracion);
 

@@ -9,24 +9,25 @@
 #define MONITOR_H_
 #include <iostream>
 #include <string>
+#include "estructuras.h"
 using namespace std;
 
 class Monitor{
 private:
 	string Nombre_;
 	string Apellidos_;
-	float Fecha_;
+	Fecha Fecha_;
 	string DNI_;
 	string Correo_;
 	int Telefono_;
 
 public:
-	Monitor(string Nombre_="\0";
-            string Apellidos="\0";
-            Fecha Fecha_;
-            string DNI_="\0";
-            string Correo_="\0";
-            int Telefono=0;)
+	Monitor(string Nombre_="\0",
+            string Apellidos="\0",
+            Fecha Fecha_,
+            string DNI_="\0",
+            string Correo_="\0",
+            int Telefono = 0);
 	void setNombre(string Nombre){Nombre_=Nombre;}
 	string getNombre()const{return Nombre_;}
 	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
@@ -38,7 +39,7 @@ public:
 	void setCorreo(string Correo){Correo_=Correo;}
 	string getCorreo()const{return Correo_;}
 	void setTelefono(int Telefono){Telefono_=Telefono;}
-	int getTelefono()const{return Telefono;}
+	int getTelefono()const{return Telefono_ ;}
     void setFechas();
     vector <Fecha> getFechas();
 };

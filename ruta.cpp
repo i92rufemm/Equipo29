@@ -73,7 +73,7 @@ bool Ruta::setHora( const int hora, const int minuto){
 }
 
 
-bool Ruta::setMonitor( const Monitor monitor){
+bool Ruta::setMonitor(  Monitor monitor){
 
     struct Fecha aux;
 
@@ -83,7 +83,7 @@ bool Ruta::setMonitor( const Monitor monitor){
 
     aux = getFecha();
 
-    for( std:: list<Fecha>::iterator i = ocupacion.begin(); i != ocupacion.end(); i++ ){
+    for( std:: vector<Fecha>::iterator i = ocupacion.begin(); i != ocupacion.end(); i++ ){
 
         if( (*i).dia == aux.dia &&  (*i).mes == aux.mes && (*i).anio == aux.anio ){
 
@@ -194,7 +194,7 @@ int Ruta::addSendero( const Sendero sendero ){
 			return -2;
     }
 
-    senderos_.push_back(client);
+    senderos_.push_back(sendero);
 
     return 1;
 }
