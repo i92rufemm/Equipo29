@@ -22,8 +22,8 @@ private:
 
 public:
 	Cliente();
-	string setNombre();
-	void getNombre();
+	void setNombre();
+	string getNombre();
 	string setApellidos();
 	void getApellidos();
 	float setFecha();
