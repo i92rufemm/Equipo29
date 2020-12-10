@@ -53,7 +53,7 @@ Ruta Parque::Seleccionar_ruta(){
     int numrut;
     cout << "¿Cual es la ruta que quieres buscar?\n Dime el numero" << endl;
     cin >> numrut;
-    for (vector<Ruta>iterator::it = rutas_.begin();it != rutas_.end();it++){
+    for (vector<Ruta>:: iterator it = rutas_.begin(); it != rutas_.end(); it++){
         if(it->getNumero() == numrut){
             return it;
         }
@@ -63,7 +63,7 @@ Sendero Parque::Seleccionar_sendero(){
     string codigo;
     cout << "Dime el codigo del sendero que quieres seleccionar" << endl;
     getline(cin,codigo);
-    for (vector<Sendero>iterator::it = senderos_.begin(); it != senderos_.end(); it++)
+    for (vector<Sendero>::iterator it = senderos_.begin(); it != senderos_.end(); it++)
     {
         if(it->getCodigo == codigo){
             return it;
