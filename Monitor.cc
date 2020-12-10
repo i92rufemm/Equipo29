@@ -9,7 +9,7 @@
 #include "estructuras.h"
 using namespace std;
 
-Fecha:: Fecha(int dia_, int mes_n int anio_){
+Fecha::Fecha(int dia_, int mes_n, int anio_){
     dia=dia_;
     mes=mes_;
     anio=anio_;
@@ -18,7 +18,7 @@ Fecha:: Fecha(int dia_, int mes_n int anio_){
 Monitor:: Monitor(string Nombre, string Apellidos, Fecha Fecha, string DNI, string Correo, int Telefono){
 	setNombre(Nombre);
 	setApellidos(Apellidos);
-	setFecha(Fecha);
+	setFechaN(Fecha);
 	setDNI(DNI);
 	SetCorreo(Correo);
 	SetTelefono(Telefono);

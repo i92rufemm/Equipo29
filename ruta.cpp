@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ruta.h"
 
+using namespace std;
 
 Ruta::Ruta( int numeroDeRuta, Monitor monitor){
 
@@ -72,7 +73,7 @@ bool Ruta::setHora( const int hora, const int minuto){
 }
 
 
-bool Ruta::setMonitor( const Monitor monitor){
+bool Ruta::setMonitor(  Monitor monitor){
 
     struct Fecha aux;
 
@@ -82,7 +83,7 @@ bool Ruta::setMonitor( const Monitor monitor){
 
     aux = getFecha();
 
-    for( std:: list<Fecha>::iterator i = ocupacion.begin(); i != ocupacion.end(); i++ ){
+    for( std:: vector<Fecha>::iterator i = ocupacion.begin(); i != ocupacion.end(); i++ ){
 
         if( (*i).dia == aux.dia &&  (*i).mes == aux.mes && (*i).anio == aux.anio ){
 
@@ -193,7 +194,7 @@ int Ruta::addSendero( const Sendero sendero ){
 			return -2;
     }
 
-    senderos_.push_back(client);
+    senderos_.push_back(sendero);
 
     return 1;
 }
@@ -215,7 +216,7 @@ int Ruta::deleteSendero(const string codigo){
     return -2;
 }
 
-int deleteSendero(const Sendero sendero){
+int Ruta::deleteSendero(const Sendero sendero){
 
     if( senderos_.empty() ){
 			return -1;
@@ -234,7 +235,7 @@ int deleteSendero(const Sendero sendero){
 }
 
 
-void imprimirClientes(){
+void Ruta::imprimirClientes(){
 
     sort(clientes_.begin(), clientes_.end(), sortByApellidos);
 
