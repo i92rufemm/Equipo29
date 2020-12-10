@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+#include "parque.h"
 class Sendero
 {
 private:

@@ -9,29 +9,64 @@ Parque::Parque(string nombreparque,float superficie,float ubicacion,string local
     ubicacion_ = ubicacion;
     localizacion_ = localizacion;
 }
-void Parque::addPremios(string premios){
-    
+bool Parque::setSuperficie(float superficie){
+    if(superficie > 0){
+        superficie_ = superficie;
+        return true;
+    }
+    return false;
 }
-void Parque::addSendero(Sendero senderos){
+bool Parque::addPremios(string premios){
+    int tamanio = premios_.size();
+    premios_.push_back(premios);
+    if (tamanio < premios_.size())
+    {
+        cout << "Se ha añadido el premio con exito " << endl;
+        return true;
+    }
+    return false;
+}
+bool Parque::addSendero(Sendero senderos){
     for(list<Sendero>::iterator it = senderos_.begin(); it != senderos_.end(); it++){
         if(it->getCodigo() == senderos.getCodigo()){
             cout << "El sendero ya esta registrado" << endl;
-            exit(1);
+            return false;
         }
     }
     senderos_.push_back(senderos);
     cout << "El sendero ha sido registrado" << endl;
+    return true;
 }
-void Parque::Cancelar_ruta(Ruta rutas){
+Ruta Parque::Cancelar_ruta(Ruta rutas){
 
     for(vector<Ruta>::iterator it = rutas_.begin(); it != rutas_.end();it++){
         if(it->getNumeroruta() == rutas.getNumeroruta()){
             rutas_.erase(it);
             cout << "La ruta ha sido cancelada con exito" << endl;
+            return true;
         }
     }
     cout << "No se ha encontrado la ruta que se querias borrar" << endl;
+    return false;
 }
-//datos
-//seleccionar_ruta
-//seleccionar_sendero
+Ruta Parque::Seleccionar_ruta(){
+    int numrut;
+    cout << "¿Cual es la ruta que quieres buscar?\n Dime el numero" << endl;
+    cin >> numrut;
+    for (vector<Ruta>iterator::it = rutas_.begin();it != rutas_.end();it++){
+        if(it->getNumero() == numrut){
+            return it;
+        }
+    }    
+}
+Sendero Parque::Seleccionar_sendero(){
+    string codigo;
+    cout << "Dime el codigo del sendero que quieres seleccionar" << endl;
+    getline(cin,codigo);
+    for (vector<Sendero>iterator::it = senderos_.begin(); it != senderos_.end(); it++)
+    {
+        if(it->getCodigo == codigo){
+            return it;
+        }
+    }    
+}

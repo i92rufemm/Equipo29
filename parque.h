@@ -1,10 +1,13 @@
 #ifndef _PARQUE.h_
 #define _PARQUE.h_
 
+
 #include <iostream>
 #include <list>
 #include <vector>
-
+#include "ruta.h"
+#include "sendero.h"
+#include "Monitor.h"
 using namespace std;
 
 
@@ -29,14 +32,14 @@ public:
     inline vector<Sendero> getSenderos()const{return senderos_;}
     inline vector<Ruta> getRutas()const{return rutas_;}
     inline void setNombre(string nombreparque){nombreparque_ = nombreparque;}
-    inline void setSuperficie(float superficie){superficie_ = superficie;}
+    inline bool setSuperficie(float superficie);
     inline void setUbicacion(float ubicacion){ubicacion_ = ubicacion;}
     inline void setLocalizacion(string localizacion){localizacion_ = localizacion;}
-    void addPremios(string premios);
-    void addSendero(Sendero senderos);//deberia ser bool por si mete un sendero que ya esta dentro
+    bool addPremios(string premios);
+    bool addSendero(Sendero senderos);//deberia ser bool por si mete un sendero que ya esta dentro
     Ruta Seleccionar_ruta();//hablar de esta funcion
     Sendero Seleccionar_sendero();//hablar de esta funcion
-    void Cancelar_ruta(Ruta rutas);
+    bool Cancelar_ruta(Ruta rutas);
 };
 
 
