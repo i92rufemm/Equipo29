@@ -26,7 +26,7 @@ public:
             Fecha Fecha_;
             string DNI_="\0";
             string Correo_="\0";
-            int Telefono=0;)
+            string Discapacidad="\0";)
 	void setNombre(string Nombre){Nombre_=Nombre;}
 	string getNombre()const{return Nombre_;}
 	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
