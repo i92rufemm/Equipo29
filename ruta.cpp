@@ -31,20 +31,28 @@ bool Ruta::setLongitud(){
    return true;
 }
 
-bool Ruta::setFecha(const int dia, const int mes, const int año, ){ // setFecha(5,2,2020, parque.getFechas() );
+bool Ruta::setFecha(const int dia, const int mes, const int anio, list<Fecha> fechas ){ // setFecha(5,2,2020, parque.getFechas() );
 
-    if( Buscar_Fecha(dia,mes,año) ){
+    struct Fecha aux;
 
-        return false;
+    aux.dia= dia;
+    aux.mes= mes;
+    aux.anio= anio;
+
+    for( std:: list<Fecha>::iterator i = fechas.begin(); i != fechas.end(); i++ ){
+
+        if( (*i).dia == aux.dia &&  (*i).mes == aux.mes && (*i).anio == aux.anio ){
+
+            return false;
+        }
+
     }
-    else{
 
-        fecha_.dia= dia;
-        fecha_.mes= mes;
-        fecha_.año= año;
+        fecha_ = aux;
+
+        fechas.push_back(fecha_);
         
         return true;
-    }
 
 }
 
@@ -205,4 +213,16 @@ int deleteSendero(const Sendero sendero){
 	}
 
 	return -2;
+}
+
+
+void imprimirClientes(){
+
+    sort(clientes_.begin(), clientes_.end(), sortByApellidos);
+
+    for (Jugador &n : V)
+        cout << n.getDNI() << endl;
+
+
+
 }
