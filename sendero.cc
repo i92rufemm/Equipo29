@@ -1,7 +1,7 @@
 #include "sendero.h"
 
 using namespace std;
-
+//para poder hacer el commit
 Sendero::Sendero(string codigo,Parque parque,string dificultad,string disponibilidad,string longitud)
 {
     setCodigo(codigo);

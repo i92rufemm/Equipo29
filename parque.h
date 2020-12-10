@@ -11,7 +11,7 @@ using namespace std;
 class Parque
 {
 private:
-    /* data */
+    /* datos privados*/
     string nombreparque_;
     float superficie_;
     float ubicacion_;

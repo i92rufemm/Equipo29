@@ -6,7 +6,7 @@ using namespace std;
 class Sendero
 {
 private:
-    /* data */
+    //datos privados
     string codigo_;
     string dificultad_;
     string disponibilidad_;
