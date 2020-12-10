@@ -6,8 +6,14 @@
  */
 
 #include "Monitor.h"
+#include "estructuras.h"
 using namespace std;
 
+Fecha::Fecha(){
+    dia=0;
+    mes=0;
+    año=0;
+}
 
 Monitor:: Monitor(){
 	Nombre_='0';
@@ -44,13 +50,19 @@ void Monitor::getApellidos(){
 
 
 float Monitor::setFecha(){
-	cout<<"Fecha: ";
-	cin>>Fecha_;
+	cout<<"Fecha:\n";
+    cout<<"Dia: ";
+	cin>>dia;
+    cout<<"\nMes: ";
+    cin>>mes;
+    cout<<"\nAño: ";
+    cin>>año;
+    cout"\n"
 } //Funcion para introducir la fecha de nacimiento de un nuevo Monitor
 
 
 void Monitor::getFecha(){
-	cout<<"Fecha :"<<Fecha_<<"\n";
+	cout<<"Fecha :"<<dia<<":"<<mes<<":"<<año<<"\n";
 } //Funcion para obtener la fecha de nacimiento del Monitor seleccionado
 
 
