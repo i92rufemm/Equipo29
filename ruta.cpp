@@ -134,7 +134,7 @@ int Ruta::addCliente(const Cliente client){
 
     for( std:: vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++){
         
-        if( (*i).getDNI() == client.getDNI() )
+        if( i->getDNI() == client.getDNI() )
 			return -2;
     }
 
