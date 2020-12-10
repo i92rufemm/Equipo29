@@ -40,7 +40,7 @@ public:
 	void setTelefono(int Telefono){Telefono_=Telefono;}
 	int getTelefono()const{return Telefono;}
     void setFechas();
-    Fecha getFechas();
+    vector <Fecha> getFechas();
 };
 
 
