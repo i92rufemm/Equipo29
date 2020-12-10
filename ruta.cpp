@@ -1,8 +1,10 @@
 #include <iostream>
 #include "ruta.h"
 
+Ruta r = ( 1, antonio);
 
-Ruta::Ruta( int numeroDeRuta, Monitor monitor ){.
+
+Ruta::Ruta( int numeroDeRuta, Monitor monitor){.
 
  numeroDeRuta_ = numeroDeRuta;
  longitud_ = 0;
@@ -31,7 +33,7 @@ bool Ruta::setLongitud(){
    return true;
 }
 
-bool Ruta::setFecha(const int dia, const int mes, const int año){
+bool Ruta::setFecha(const int dia, const int mes, const int año, ){ // setFecha(5,2,2020, parque.getFechas() );
 
     if( Buscar_Fecha(dia,mes,año) ){
 
@@ -106,7 +108,7 @@ int Ruta::addCliente(const Cliente client){
         return -1;
     }
 
-    for( std:: list<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++){
+    for( std:: vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++){
         
         if( i -> getDNI() == client.getDNI() )
 			return -2;
@@ -123,7 +125,7 @@ int Ruta::deleteCliente(const string dni){
         return -1;
     }
 
-    for( std:: list<Cliente>:: iterator i = clientes_.begin(); i!= clientes_.end(); i++){
+    for( std:: vector<Cliente>:: iterator i = clientes_.begin(); i!= clientes_.end(); i++){
         
         if( i -> getDNI() == dni() ){
             clientes_.erase(i);
@@ -141,7 +143,7 @@ int Ruta::deleteCliente(const Cliente client){
 			return -1;
 	}
 
-	for( std::list<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
+	for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
 
 		if( i -> getDNI() == client.getDNI() ){
 			clientes_.erase(i);
