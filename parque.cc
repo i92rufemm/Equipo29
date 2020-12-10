@@ -1,3 +1,4 @@
+
 #include "parque.h"
 using namespace std;
 
@@ -29,7 +30,7 @@ void Parque::Cancelar_ruta(Ruta rutas){
             cout << "La ruta ha sido cancelada con exito" << endl;
         }
     }
-    cout << "No se ha encontrado la ruta que se queria borrar" << endl;
+    cout << "No se ha encontrado la ruta que se querias borrar" << endl;
 }
 
 //seleccionar_ruta
