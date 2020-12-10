@@ -2,7 +2,7 @@
 #include "ruta.h"
 
 
-Ruta::Ruta( int numeroDeRuta, Monitor monitor){.
+Ruta::Ruta( int numeroDeRuta, Monitor monitor){
 
  numeroDeRuta_ = numeroDeRuta;
  longitud_ = 0;
@@ -21,7 +21,7 @@ bool Ruta::setLongitud(){
 			return false;
 	}
 
-   ( std::vector<Sendero>::iterator i = senderos_.begin(); i != senderos_.end(); i++ ){
+   for( std::list<Sendero>::iterator i = senderos_.begin(); i != senderos_.end(); i++ ){
 
        aux = aux + (*i).getLongitud();
    }
@@ -99,9 +99,6 @@ bool Ruta::setMonitor( const Monitor monitor){
 
 
 
-
-}
-
 bool Ruta::setAforo( const int aforo){
 
     if( getClientes().size() > aforo ){
@@ -137,7 +134,7 @@ int Ruta::addCliente(const Cliente client){
 
     for( std:: vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++){
         
-        if( i -> getDNI() == client.getDNI() )
+        if( (*i).getDNI() == client.getDNI() )
 			return -2;
     }
 
@@ -154,7 +151,7 @@ int Ruta::deleteCliente(const string dni){
 
     for( std:: vector<Cliente>:: iterator i = clientes_.begin(); i!= clientes_.end(); i++){
         
-        if( i -> getDNI() == dni() ){
+        if( (*i).getDNI() == dni ){
             clientes_.erase(i);
             return 1;
         }
@@ -196,7 +193,7 @@ int Ruta::addSendero( const Sendero sendero ){
 			return -2;
     }
 
-    sendero_.push_back(client);
+    senderos_.push_back(client);
 
     return 1;
 }
@@ -241,7 +238,7 @@ void imprimirClientes(){
 
     sort(clientes_.begin(), clientes_.end(), sortByApellidos);
 
-    for (Jugador &n : V)
+    for (Cliente &n : clientes_)
         cout << n.getDNI() << endl;
 
 

@@ -4,10 +4,11 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <algorithm>
 #include "estructuras.h"
 #include "parque.h"
-#include "monitor.h"
-#include "cliente.h"
+#include "Monitor.h"
+#include "Cliente.h"
 #include "sendero.h"
 
 using namespace std;
@@ -35,9 +36,9 @@ class Ruta{
         inline float getLongitud()const{ return longitud_ ; }
         inline struct Fecha getFecha()const{ return fecha_ ; }
         inline struct Hora getHora()const{ return hora_ ; }
-        inline Monitor getMonitor()const{ return Monitor_ ; }
+        inline Monitor getMonitor()const{ return monitor_ ; }
         inline int getAforo()const{ return aforo_ ; }
-        inline string getDuracion()const{ return duracion_ ; }
+        inline int getDuracion()const{ return duracion_ ; }
         inline vector <Cliente> getClientes()const{ return clientes_ ; }
         inline list <Sendero> getSenderos()const{ return senderos_ ; }
 
