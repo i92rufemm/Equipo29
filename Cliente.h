@@ -21,19 +21,24 @@ private:
 	string Discapacidad_;
 
 public:
-	Cliente();
-	void setNombre();
-	string getNombre();
-	string setApellidos();
-	void getApellidos();
-	float setFecha();
-	void getFecha();
-	string setDNI();
-	void getDNI();
-	string setCorreo();
-	void getCorreo();
-	string setDiscapacidad();
-	void getDiscapacidad();
+	Monitor(string Nombre_="\0";
+            string Apellidos="\0";
+            Fecha Fecha_;
+            string DNI_="\0";
+            string Correo_="\0";
+            int Telefono=0;)
+	void setNombre(string Nombre){Nombre_=Nombre;}
+	string getNombre()const{return Nombre_;}
+	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
+	string getApellidos()const{return Apellidos_;}
+	void setFechaN(Fecha);//Ahora cuando averigue como funciona la pongo
+	Fecha getFechaN()const{return Fecha_;}
+	void setDNI(string DNI){DNI_=DNI;}
+	string getDNI()const{return DNI_;}
+	void setCorreo(string Correo){Correo_=Correo;}
+	string getCorreo()const{return Correo_;}
+	void setDiscapacidad(int Discapacidad){Discapacidad_=Discapacidad;}
+	string getDiscapacidad()const{return Discapacidad_;}
 };
 
 
