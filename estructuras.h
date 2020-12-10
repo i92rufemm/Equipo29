@@ -10,14 +10,14 @@ struct Hora{
     int horas;
     int minutos;
 
-}
+};
 
 struct Fecha{
 
     int dia;
     int mes;
-    int año;
-}
+    int anio;
+};
 
 
 #endif
