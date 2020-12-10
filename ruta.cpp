@@ -1,8 +1,6 @@
 #include <iostream>
 #include "ruta.h"
 
-Ruta r = ( 1, antonio);
-
 
 Ruta::Ruta( int numeroDeRuta, Monitor monitor){.
 

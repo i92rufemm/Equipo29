@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 struct Hora{
 
     int horas;
@@ -16,7 +18,6 @@ struct Fecha{
     int mes;
     int año;
 }
-
 
 
 #endif
