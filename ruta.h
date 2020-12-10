@@ -26,7 +26,6 @@ class Ruta{
         int duracion_; //1 media jornada, 2 jornada completa
         vector <Cliente> clientes_;
         list <Sendero> senderos_;
-        *Parque parquecito;
 
     public:
 
@@ -44,11 +43,13 @@ class Ruta{
 
 
         bool setLongitud();
-        bool setFecha(const int dia, const int mes, const int año);
+        bool setFecha(const int dia, const int mes, const int anio, list<Fecha> fechas );
         bool setHora( const int hora, const int minuto);
         bool setMonitor( const Monitor monitor);
         bool setAforo( const int aforo);
         bool setDuracion(const int duracion);
+
+        bool sortByApellidos(const Cliente &lhs, const Cliente &rhs) { return lhs.getApellidos() < rhs.getApellidos(); }
         void imprimirClientes();
 
         /* Introduce un cliente en la lista de clientes recibiendolo 

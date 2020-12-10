@@ -16,7 +16,7 @@ struct Fecha{
 
     int dia;
     int mes;
-    int año;
+    int anio;
 }
 
 
