@@ -2,7 +2,9 @@
 #define RUTA_H
 
 #include <string>
+#include <vector>
 #include <list>
+#include "estructuras.h"
 #include "parque.h"
 #include "monitor.h"
 #include "cliente.h"
@@ -10,19 +12,7 @@
 
 using namespace std;
 
-struct Hora{
 
-    int horas;
-    int minutos;
-
-}
-
-struct Fecha{
-
-    int dia;
-    int mes;
-    int año;
-}
 
 class Ruta{
 
@@ -34,8 +24,9 @@ class Ruta{
         Monitor monitor_;
         int aforo_;
         int duracion_; //1 media jornada, 2 jornada completa
-        list <Cliente> clientes_;
+        vector <Cliente> clientes_;
         list <Sendero> senderos_;
+        *Parque parquecito;
 
     public:
 
@@ -48,7 +39,7 @@ class Ruta{
         inline Monitor getMonitor()const{ return Monitor_ ; }
         inline int getAforo()const{ return aforo_ ; }
         inline string getDuracion()const{ return duracion_ ; }
-        inline list <Cliente> getClientes()const{ return clientes_ ; }
+        inline vector <Cliente> getClientes()const{ return clientes_ ; }
         inline list <Sendero> getSenderos()const{ return senderos_ ; }
 
 
@@ -58,6 +49,7 @@ class Ruta{
         bool setMonitor( const Monitor monitor);
         bool setAforo( const int aforo);
         bool setDuracion(const int duracion);
+        void imprimirClientes();
 
         /* Introduce un cliente en la lista de clientes recibiendolo 
         como argumento. Devuelve 1 si se ha podido introducir el cliente,
