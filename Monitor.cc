@@ -6,21 +6,15 @@
  */
 
 #include "Monitor.h"
-#include "estructuras.h"
 using namespace std;
 
-Fecha::Fecha(int dia_, int mes_n, int anio_){
-    dia=dia_;
-    mes=mes_;
-    anio=anio_;
-}
-
-Monitor:: Monitor(string Nombre, string Apellidos, Fecha Fecha, string DNI, string Correo, int Telefono){
+Monitor:: Monitor(string Nombre, string Apellidos, Fecha Fecha, string DNI, string Correo, int Telefono, Fecha Fecha){
 	setNombre(Nombre);
 	setApellidos(Apellidos);
 	setFechaN(Fecha);
 	setDNI(DNI);
 	SetCorreo(Correo);
 	SetTelefono(Telefono);
+	getFechas();
 }
 

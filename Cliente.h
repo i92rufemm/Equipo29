@@ -7,8 +7,10 @@
 
 #ifndef CLIENTE_H_
 #define CLIENTE_H_
+#include "estructuas.h"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Cliente{
