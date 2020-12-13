@@ -21,10 +21,11 @@ private:
 	string DNI_;
 	string Correo_;
 	int Telefono_;
-	struct Fecha Fecha_;
+	vector <Fecha> ListaFecha_;
+	int count_;
 
 public:
-	Monitor(string Nombre_="0", string Apellidos="0", Fecha Fecha_, string DNI_="0", string Correo_="0", int Telefono = 0, Fecha Fecha);
+	Monitor(string Nombre_="0", string Apellidos="0", Fecha Fecha_, string DNI_="0", string Correo_="0", int Telefono = 0, vector <Fecha> ListaFecha);
 	void setNombre(string Nombre){Nombre_=Nombre;}
 	string getNombre()const{return Nombre_;}
 	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
@@ -37,8 +38,8 @@ public:
 	string getCorreo()const{return Correo_;}
 	void setTelefono(int Telefono){Telefono_=Telefono;}
 	int getTelefono()const{return Telefono_ ;}
-    void setFechas();
-    inline list <Fecha> getFechas();
+    void setFechas(Fecha Fechas, int count){ListaFecha_=ListaFecha; count_=count;}
+    inline vector <Fecha> getFechas()const{return ListaFecha_;}
 };
 
 
