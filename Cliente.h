@@ -7,7 +7,7 @@
 
 #ifndef CLIENTE_H_
 #define CLIENTE_H_
-#include "estructuas.h"
+#include "estructuras.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,18 +17,13 @@ class Cliente{
 private:
 	string Nombre_;
 	string Apellidos_;
-	float Fecha_;
+	Fecha Fecha_;
 	string DNI_;
 	string Correo_;
 	string Discapacidad_;
 
 public:
-	Monitor(string Nombre_="\0";
-            string Apellidos="\0";
-            Fecha Fecha_;
-            string DNI_="\0";
-            string Correo_="\0";
-            string Discapacidad="\0";)
+	Cliente(string Nombre_="\0", string Apellidos="\0", string DNI="\0", string Correo="\0", string Discapacidad="\0");
 	void setNombre(string Nombre){Nombre_=Nombre;}
 	string getNombre()const{return Nombre_;}
 	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
@@ -39,7 +34,7 @@ public:
 	string getDNI()const{return DNI_;}
 	void setCorreo(string Correo){Correo_=Correo;}
 	string getCorreo()const{return Correo_;}
-	void setDiscapacidad(int Discapacidad){Discapacidad_=Discapacidad;}
+	void setDiscapacidad(string Discapacidad){Discapacidad_=Discapacidad;}
 	string getDiscapacidad()const{return Discapacidad_;}
 };
 

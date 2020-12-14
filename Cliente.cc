@@ -1,13 +1,12 @@
 #include "Cliente.h"
 using namespace std;
 
-Cliente::Cliente(string Nombre, string Apellidos, Fecha Fecha, string DNI, ){
+Cliente::Cliente(string Nombre, string Apellidos, string DNI,string Correo, string Discapacidad){
 	setNombre(Nombre);
 	setApellidos(Apellidos);
-	setFechaN(Fecha);
 	setDNI(DNI);
-	SetCorreo(Correo);
-	SetDiscapacidad(Discapacidad);
+	setCorreo(Correo);
+	setDiscapacidad(Discapacidad);
 }
 
 

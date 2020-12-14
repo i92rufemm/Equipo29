@@ -1,9 +1,9 @@
 #ifndef _SENDERO.h_
 #define _SENDERO.h_
+#include "parque.h"
 #include <iostream>
 #include <string>
 using namespace std;
-#include "parque.h"
 class Sendero
 {
 private:

@@ -4,7 +4,7 @@ using namespace std;
 
 Parque::Parque(string nombreparque,float superficie,float ubicacion,string localizacion)
 {
-    setNombre(nombreparque);
+    nombreparque_=nombreparque;
     superficie_ = superficie;
     ubicacion_ = ubicacion;
     localizacion_ = localizacion;

@@ -24,7 +24,7 @@ private:
     vector<Ruta>rutas_;
 
 public:
-    Parque(string nombreparque,float superficie = 0.0,float ubicacion = 0.0,string localizacion = "");
+    Parque(string nombreparque="",float superficie = 0.0,float ubicacion = 0.0,string localizacion = "");
     inline string getNombre()const{return nombreparque_;}
     inline float getSuperficie()const{return superficie_;}
     inline float getUbicacion()const{return ubicacion_;}

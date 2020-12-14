@@ -77,11 +77,4 @@ void Monitor:: setFechas(vector <Fecha> ListaFecha, int count){
 		}
 }
 
-vector <Fecha> Monitor:: getFechas(vector <Fecha> ListaFechas, int count){
-	for (int i=0; i<count; i++){
-		cout<<"\n"<<ListaFechas[i].dia<<"/"<<ListaFechas[i].mes<<"/"<<ListaFechas[i].anio<<"\n";
-		}
-	return ListaFechas;
-
-}
 

@@ -37,7 +37,7 @@ public:
 	inline void setTelefono(int Telefono){Telefono_=Telefono;}
 	inline int getTelefono()const{return Telefono_ ;}
     void setFechas(vector <Fecha> ListaFecha, int count);
-	vector <Fecha> getFechas(vector <Fecha> ListaFechas, int count);
+	inline vector <Fecha> getFechas(){return ListaFecha_;}
 };
 
 
