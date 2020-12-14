@@ -17,7 +17,6 @@ class Monitor{
 private:
 	string Nombre_;
 	string Apellidos_;
-	Fecha Fecha_;
 	string DNI_;
 	string Correo_;
 	int Telefono_;
@@ -25,21 +24,20 @@ private:
 	int count_;
 
 public:
-	Monitor(string Nombre_="0", string Apellidos="0", Fecha Fecha_, string DNI_="0", string Correo_="0", int Telefono = 0, vector <Fecha> ListaFecha);
-	void setNombre(string Nombre){Nombre_=Nombre;}
-	string getNombre()const{return Nombre_;}
-	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
-	string getApellidos()const{return Apellidos_;}
-	void setFechaN(Fecha);//Ahora cuando averigue como funciona la pongo
-	Fecha getFechaN()const{return Fecha_;}
-	void setDNI(string DNI){DNI_=DNI;}
-	string getDNI()const{return DNI_;}
-	void setCorreo(string Correo){Correo_=Correo;}
-	string getCorreo()const{return Correo_;}
-	void setTelefono(int Telefono){Telefono_=Telefono;}
-	int getTelefono()const{return Telefono_ ;}
-    void setFechas(Fecha Fechas, int count){ListaFecha_=ListaFecha; count_=count;}
-    inline vector <Fecha> getFechas()const{return ListaFecha_;}
+	Monitor(string Nombre_="0", string Apellidos="0", string DNI_="0", string Correo_="0", int Telefono = 0);
+	inline void setNombre(string Nombre){Nombre_=Nombre;}
+	inline string getNombre()const{return Nombre_;}
+	inline void setApellidos(string Apellidos){Apellidos_=Apellidos;}
+	inline string getApellidos()const{return Apellidos_;}
+	inline void setFechaN(Fecha);//Ahora cuando averigue como funciona la pongo
+	inline void setDNI(string DNI){DNI_=DNI;}
+	inline string getDNI()const{return DNI_;}
+	inline void setCorreo(string Correo){Correo_=Correo;}
+	inline string getCorreo()const{return Correo_;}
+	inline void setTelefono(int Telefono){Telefono_=Telefono;}
+	inline int getTelefono()const{return Telefono_ ;}
+    void setFechas(vector <Fecha> ListaFecha, int count);
+	vector <Fecha> getFechas(vector <Fecha> ListaFechas, int count);
 };
 
 
