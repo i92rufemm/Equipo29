@@ -309,7 +309,7 @@ bool Ruta::lee_clientes_rutas(){
 
 	if( fichero.fail() ){
 		cout << "Error al abrir fichero" << endl;
-		exit(1);
+		return false;
 	}
 
     while( getline( fichero, nombre, ',' ) ){
@@ -328,4 +328,6 @@ bool Ruta::lee_clientes_rutas(){
 	}
 
 	fichero.close();
+
+    return true;
 }

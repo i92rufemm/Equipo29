@@ -8,7 +8,7 @@
 #include "Monitor.h"
 using namespace std;
 
-Monitor:: Monitor(string Nombre, string Apellidos, string DNI, string Correo, int Telefono ){
+Monitor:: Monitor(string Nombre, string Apellidos, string DNI, int dia,int mes, int anio, string Correo, int Telefono ){
 	setNombre(Nombre);
 	setApellidos(Apellidos);
 	setDNI(DNI);

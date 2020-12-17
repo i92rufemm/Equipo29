@@ -29,6 +29,9 @@ private:
     list<string>premios_;
     vector<Sendero>senderos_;
     vector<Ruta>rutas_;
+    vector <Cliente> clientes_; // he tenido que añadir este vector para almacenar todos los clientes del parque
+    vector <Monitor> monitores_; // he tenido que añadir este vector para almacenar todos los monitores del parque
+
 
 public:
     Parque(string nombreparque="",float superficie = 0.0,float ubicacion = 0.0,string localizacion = "");
@@ -50,6 +53,13 @@ public:
 
     bool escribir_datos_rutas();
     bool lee_rutas();
+
+    bool escribir_clientes_parque();
+    bool lee_clientes_parque();
+
+    bool escribir_monitores_parque();
+    bool lee_monitores_parque();
+
 };
 
 

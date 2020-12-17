@@ -164,3 +164,167 @@ bool Parque::lee_rutas(){
 
 	fichero.close();
 }
+
+//
+
+bool Parque::escribir_clientes_parque(){
+
+    string nombre_fichero;
+    char auxiliar[100] = "\0";
+
+    struct Fecha fecha;
+    
+
+    ofstream fichero;
+
+    nombre_fichero = getNombre()+"_clientes.txt";
+
+    strcpy(auxiliar,nombre_fichero.c_str());
+
+    remove( auxiliar );
+
+    fichero.open(nombre_fichero, ios::out);
+
+    if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+
+for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
+
+    fecha = i->getFechaN();
+
+    fichero << i->getNombre() << ',';
+	fichero << i->getApellidos() << ',';
+	fichero << fecha.dia << '/';
+	fichero << fecha.mes << '/';
+	fichero << fecha.anio << ',';
+	fichero << i->getDNI() << ',';
+	fichero << i->getCorreo() << ',';
+    fichero << i->getDiscapacidad() << '\n';
+}
+    
+    fichero.close();
+
+    return true;
+}
+
+
+bool Parque::lee_clientes_parque(){
+
+    string nombre_fichero, nombre, apellidos, dia, mes, anio, DNI, correo, discapacidad;
+
+
+    ifstream fichero;
+
+    nombre_fichero = getNombre()+"_clientes.txt";
+
+	fichero.open( nombre_fichero , ios::in );
+
+	if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+
+    while( getline( fichero, nombre, ',' ) ){
+
+		getline( fichero, apellidos, ',' );
+		getline( fichero, dia, '/' );
+		getline( fichero, mes, '/' );
+		getline( fichero, anio, ',' );
+        getline( fichero, DNI, ',' );
+        getline( fichero, correo, ',' );
+		getline( fichero, discapacidad, '\n' );
+
+        Cliente cliente(nombre, apellidos,stoi(dia),stoi(mes), stoi(anio), DNI,correo, discapacidad );
+
+		clientes_.push_back(cliente);
+	}
+
+	fichero.close();
+
+    return true;
+}
+
+
+//
+
+
+bool Parque::escribir_monitores_parque(){
+
+    string nombre_fichero;
+    char auxiliar[100] = "\0";
+
+    struct Fecha fecha;
+    
+
+    ofstream fichero;
+
+    nombre_fichero = getNombre()+"_monitores.txt";
+
+    strcpy(auxiliar,nombre_fichero.c_str());
+
+    remove( auxiliar );
+
+    fichero.open(nombre_fichero, ios::out);
+
+    if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+
+for( std::vector<Monitor>::iterator i = monitores_.begin(); i != monitores_.end(); i++ ){
+
+    fecha = i->getFechaN();
+
+    fichero << i->getNombre() << ',';
+	fichero << i->getApellidos() << ',';
+	fichero << fecha.dia << '/';
+	fichero << fecha.mes << '/';
+	fichero << fecha.anio << ',';
+	fichero << i->getDNI() << ',';
+	fichero << i->getCorreo() << ',';
+    fichero << i->getTelefono() << '\n';
+}
+    
+    fichero.close();
+
+    return true;
+}
+
+
+bool Parque::lee_monitores_parque(){
+
+    string nombre_fichero, nombre, apellidos, dia, mes, anio, DNI, correo, telefono;
+
+
+    ifstream fichero;
+
+    nombre_fichero = getNombre()+"_monitores.txt";
+
+	fichero.open( nombre_fichero , ios::in );
+
+	if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+
+    while( getline( fichero, nombre, ',' ) ){
+
+		getline( fichero, apellidos, ',' );
+		getline( fichero, dia, '/' );
+		getline( fichero, mes, '/' );
+		getline( fichero, anio, ',' );
+        getline( fichero, DNI, ',' );
+        getline( fichero, correo, ',' );
+		getline( fichero, telefono, '\n' );
+
+        Monitor monitor(nombre, apellidos, DNI, stoi(dia),stoi(mes), stoi(anio),correo, stoi(telefono) );
+
+		monitores_.push_back(monitor);
+	}
+
+	fichero.close();
+
+    return true;
+}
