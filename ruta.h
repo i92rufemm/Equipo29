@@ -34,7 +34,8 @@ class Ruta{
 
     public:
 
-        Ruta( int numeroDeRuta, Monitor monitor);
+        Ruta( int numeroDeRuta, Monitor monitor, float longitud=0, int dia=0, int mes=0, int anio=0, int horas=0, 
+              int minutos=0, int aforo=0, int duracion=0);
 
         inline int getNumero()const{ return numeroDeRuta_ ; }
         inline float getLongitud()const{ return longitud_ ; }
@@ -94,7 +95,9 @@ class Ruta{
 	  encontrado al sendero en la lista*/
         int deleteSendero(const Sendero sendero);
 
-        bool escribir_datos_ruta();
+        bool escribir_clientes_rutas();
+        bool lee_clientes_rutas();
+
 };
 
 

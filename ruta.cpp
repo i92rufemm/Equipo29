@@ -3,18 +3,18 @@
 
 using namespace std;
 
-Ruta::Ruta( int numeroDeRuta, Monitor monitor){
+Ruta::Ruta( int numeroDeRuta, Monitor monitor, float longitud, int dia, int mes, int anio, int horas, int minutos, int aforo, int duracion){
 
  numeroDeRuta_ = numeroDeRuta;
- longitud_ = 0;
- fecha_.dia = 0;
- fecha_.mes = 0;
- fecha_.anio = 0;
- hora_.horas = 0;
- hora_.minutos = 0;
+ longitud_ = longitud;
+ fecha_.dia = dia;
+ fecha_.mes = mes;
+ fecha_.anio = anio;
+ hora_.horas = horas;
+ hora_.minutos = minutos;
  monitor_ = monitor;
- aforo_ = 0;
- duracion_ = 0;
+ aforo_ = aforo;
+ duracion_ = duracion;
 
 }
 
@@ -252,17 +252,16 @@ void Ruta::imprimirClientes(){
 }
 
 
-bool Ruta::escribir_datos_ruta(){
+
+bool Ruta::escribir_clientes_rutas(){
 
     string nombre_fichero;
     char auxiliar[100] = "\0";
+
     struct Fecha fecha;
-    struct Hora hora;
+    
 
     ofstream fichero;
-
-    hora = getHora();
-    fecha = getFecha();
 
     nombre_fichero = getNumero()+".txt";
 
@@ -277,16 +276,19 @@ bool Ruta::escribir_datos_ruta(){
 		return false;
 	}
 
-    fichero << getNumero() << ',';
-	fichero << getLongitud() << ',';
+for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
+
+    fecha = i->getFechaN();
+
+    fichero << i->getNombre() << ',';
+	fichero << i->getApellidos() << ',';
 	fichero << fecha.dia << '/';
 	fichero << fecha.mes << '/';
 	fichero << fecha.anio << ',';
-	fichero << hora.horas << ':';
-	fichero << hora.minutos << ',';
-	fichero << getMonitor().getDNI() << ',';
-	fichero << getAforo() << ',';
-    fichero << getDuracion() << '\n';
+	fichero << i->getDNI() << ',';
+	fichero << i->getCorreo() << ',';
+    fichero << i->getDiscapacidad() << '\n';
+}
     
     fichero.close();
 
@@ -294,3 +296,36 @@ bool Ruta::escribir_datos_ruta(){
 }
 
 
+bool Ruta::lee_clientes_rutas(){
+
+    string nombre_fichero, nombre, apellidos, dia, mes, anio, DNI, correo, discapacidad;
+
+
+    ifstream fichero;
+
+    nombre_fichero = getNumero()+".txt";
+
+	fichero.open( nombre_fichero , ios::in );
+
+	if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		exit(1);
+	}
+
+    while( getline( fichero, nombre, ',' ) ){
+
+		getline( fichero, apellidos, ',' );
+		getline( fichero, dia, '/' );
+		getline( fichero, mes, '/' );
+		getline( fichero, anio, ',' );
+        getline( fichero, DNI, ',' );
+        getline( fichero, correo, ',' );
+		getline( fichero, discapacidad, '\n' );
+
+        Cliente cliente(nombre, apellidos,stoi(dia),stoi(mes), stoi(anio), DNI,correo, discapacidad );
+
+		clientes_.push_back(cliente);
+	}
+
+	fichero.close();
+}

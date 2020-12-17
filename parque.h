@@ -3,8 +3,15 @@
 
 
 #include <iostream>
-#include <list>
+#include <fstream>
+#include <cstring> //prototipos de strcpy y strncpy
+#include <cstdlib>
+#include <string>
 #include <vector>
+#include <list>
+#include <algorithm>
+
+#include "estructuras.h"
 #include "ruta.h"
 #include "sendero.h"
 #include "Monitor.h"
@@ -40,6 +47,9 @@ public:
     Ruta Seleccionar_ruta();//hablar de esta funcion
     Sendero Seleccionar_sendero();//hablar de esta funcion
     bool Cancelar_ruta(Ruta rutas);
+
+    bool escribir_datos_rutas();
+    bool lee_rutas();
 };
 
 

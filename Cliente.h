@@ -23,7 +23,7 @@ private:
 	string Discapacidad_;
 
 public:
-	Cliente(string Nombre_="\0", string Apellidos="\0", string DNI="\0", string Correo="\0", string Discapacidad="\0");
+	Cliente(string Nombre_="\0", string Apellidos="\0",int dia = 0, int mes = 0, int anio = 0, string DNI="\0", string Correo="\0", string Discapacidad="\0");
 	void setNombre(string Nombre){Nombre_=Nombre;}
 	string getNombre()const{return Nombre_;}
 	void setApellidos(string Apellidos){Apellidos_=Apellidos;}

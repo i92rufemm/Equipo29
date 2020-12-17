@@ -70,3 +70,97 @@ Sendero Parque::Seleccionar_sendero(){
         }
     }    
 }
+
+
+bool Parque::escribir_datos_rutas(){
+
+    string nombre_fichero;
+    string nombre,apellidos, DNI;
+    char auxiliar[100] = "\0";
+    struct Fecha fecha;
+    struct Hora hora;
+
+    ofstream fichero;
+
+
+    nombre_fichero = "rutas.txt";
+
+    strcpy(auxiliar,nombre_fichero.c_str());
+
+    remove( auxiliar );
+
+    fichero.open(nombre_fichero, ios::out);
+
+    if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+for( std::vector<Ruta>::iterator i = rutas_.begin(); i != rutas_.end(); i++ ){
+
+    hora = i->getHora();
+    fecha = i->getFecha();
+    
+
+    fichero << i->getNumero() << ',';
+	fichero << i->getLongitud() << ',';
+	fichero << fecha.dia << '/';
+	fichero << fecha.mes << '/';
+	fichero << fecha.anio << ',';
+	fichero << hora.horas << ':';
+	fichero << hora.minutos << ',';
+    fichero << i -> getMonitor().getNombre() << ',';
+    fichero << i -> getMonitor().getApellidos() << ',';
+	fichero << i->getMonitor().getDNI() << ',';
+	fichero << i->getAforo() << ',';
+    fichero << i->getDuracion() << '\n';
+}
+    
+    fichero.close();
+
+    return true;
+}
+
+
+bool Parque::lee_rutas(){
+
+    string numeroDeRuta, aforo, duracion;
+    string longitud;
+    string dia, mes, anio;
+    string  horas,minutos;
+    string nombre, apellidos, DNI;
+
+    Monitor monitor;
+
+    ifstream fichero;
+
+	fichero.open("rutas.txt", ios::in );
+
+	if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		exit(1);
+	}
+
+    while( getline( fichero, numeroDeRuta, ',' ) ){
+
+		getline( fichero, longitud, ',' );
+		getline( fichero, dia, '/' );
+		getline( fichero, mes, '/' );
+		getline( fichero, anio, ',' );
+		getline( fichero, horas, ':' );
+		getline( fichero, minutos, ',' );
+        getline( fichero, nombre, ',' );
+        getline( fichero, apellidos, ',' );
+		getline( fichero, DNI, ',' );
+		getline( fichero, aforo, ',' );
+        getline( fichero, duracion, '\n' );
+
+        Monitor monitor(nombre, apellidos, DNI);
+
+		Ruta ruta(stoi(numeroDeRuta), monitor, stof(longitud), stoi(dia), stoi(mes), stoi(anio), stoi(horas), stoi(minutos),
+               stoi(aforo), stoi(duracion) );
+
+		rutas_.push_back(ruta);
+	}
+
+	fichero.close();
+}
