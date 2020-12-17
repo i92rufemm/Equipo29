@@ -7,9 +7,14 @@ Ruta::Ruta( int numeroDeRuta, Monitor monitor){
 
  numeroDeRuta_ = numeroDeRuta;
  longitud_ = 0;
+ fecha_.dia = 0;
+ fecha_.mes = 0;
+ fecha_.anio = 0;
+ hora_.horas = 0;
+ hora_.minutos = 0;
  monitor_ = monitor;
  aforo_ = 0;
- duracion_ = '\0';
+ duracion_ = 0;
 
 }
 
@@ -245,3 +250,47 @@ void Ruta::imprimirClientes(){
 
 
 }
+
+
+bool Ruta::escribir_datos_ruta(){
+
+    string nombre_fichero;
+    char auxiliar[100] = "\0";
+    struct Fecha fecha;
+    struct Hora hora;
+
+    ofstream fichero;
+
+    hora = getHora();
+    fecha = getFecha();
+
+    nombre_fichero = getNumero()+".txt";
+
+    strcpy(auxiliar,nombre_fichero.c_str());
+
+    remove( auxiliar );
+
+    fichero.open(nombre_fichero, ios::out);
+
+    if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+
+    fichero << getNumero() << ',';
+	fichero << getLongitud() << ',';
+	fichero << fecha.dia << '/';
+	fichero << fecha.mes << '/';
+	fichero << fecha.anio << ',';
+	fichero << hora.horas << ':';
+	fichero << hora.minutos << ',';
+	fichero << getMonitor().getDNI() << ',';
+	fichero << getAforo() << ',';
+    fichero << getDuracion() << '\n';
+    
+    fichero.close();
+
+    return true;
+}
+
+

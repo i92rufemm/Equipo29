@@ -1,6 +1,10 @@
 #ifndef RUTA_H
 #define RUTA_H
 
+#include <iostream>
+#include <fstream>
+#include <cstring> //prototipos de strcpy y strncpy
+#include <cstdlib>
 #include <string>
 #include <vector>
 #include <list>
@@ -90,6 +94,7 @@ class Ruta{
 	  encontrado al sendero en la lista*/
         int deleteSendero(const Sendero sendero);
 
+        bool escribir_datos_ruta();
 };
 
 
