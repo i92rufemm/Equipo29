@@ -46,11 +46,12 @@ public:
     inline void setUbicacion(float ubicacion){ubicacion_ = ubicacion;}
     inline void setLocalizacion(string localizacion){localizacion_ = localizacion;}
     bool addPremios(string premios);
-    bool addSendero(Sendero senderos);//deberia ser bool por si mete un sendero que ya esta dentro
-    Ruta Seleccionar_ruta();//hablar de esta funcion
-    Sendero Seleccionar_sendero();//hablar de esta funcion
+    bool addSendero(Sendero senderos);
+    Ruta Seleccionar_ruta();
+    Sendero Seleccionar_sendero();
     bool Cancelar_ruta(Ruta rutas);
 
+    //2º sprint cabecera funciones para guardar y leer los datos del fichero
     bool escribir_datos_rutas();
     bool lee_rutas();
 
@@ -59,6 +60,9 @@ public:
 
     bool escribir_monitores_parque();
     bool lee_monitores_parque();
+
+    bool escribir_clientes_parque();
+    bool lee_clientes_parque();
 
 };
 
