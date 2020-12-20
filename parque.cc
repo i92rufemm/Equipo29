@@ -38,7 +38,7 @@ bool Parque::addSendero(Sendero sendero){
     return true;
 }
 bool Parque::Cancelar_ruta(Ruta ruta){
-
+    
     for(vector<Ruta>::iterator it = rutas_.begin(); it != rutas_.end();it++){
         if(it->getNumero() == ruta.getNumero()){
             rutas_.erase(it);
