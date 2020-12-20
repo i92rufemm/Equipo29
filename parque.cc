@@ -247,8 +247,6 @@ bool Parque::lee_clientes_parque(){
 }
 
 
-//
-
 
 bool Parque::escribir_monitores_parque(){
 
@@ -326,5 +324,60 @@ bool Parque::lee_monitores_parque(){
 
 	fichero.close();
 
+    return true;
+}
+
+bool Parque::escribir_senderos_parque(){
+    string nombre_fichero;
+    string codigo,dificultad,disponibilidad;
+    float longitud;
+    char auxiliar[100] = "\0";
+
+    ofstream fichero;
+    
+    nombre_fichero = "senderos.txt";
+
+    strcpy(auxiliar,nombre_fichero.c_str());
+
+    remove( auxiliar );
+
+    fichero.open(nombre_fichero, ios::out);
+
+    if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	} 
+    for(std::vector<Sendero>::iterator i = senderos_.begin(); i != senderos_.end(); i++){
+        fichero << i->getCodigo()<< ",";
+        fichero << i->getDificultad() << ",";
+        fichero << i->getDisponibilidad() << ",";
+        fichero << i->getLongitud() << "\n";
+    }
+    fichero.close();
+    return true;
+}
+bool Parque::lee_senderos_parque(){
+    
+    string codigo,dificultad,disponibilidad,longitud;
+    
+    ifstream fichero;
+
+    fichero.open("senderos.txt",ios::in);
+
+    if( fichero.fail() ){
+		cout << "Error al abrir fichero" << endl;
+		return false;
+	}
+
+    while(getline(fichero,codigo, ',')){
+        getline(fichero,dificultad,',');
+        getline(fichero,disponibilidad,',');
+        getline(fichero,longitud,'\n');
+
+        Sendero sendero(codigo,dificultad,disponibilidad,stof(longitud));//codigo es un parametro obligatorio
+
+        senderos_.push_back(sendero);
+    }
+    fichero.close();
     return true;
 }
