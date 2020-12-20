@@ -24,6 +24,25 @@ int main(){
     float superficie;
     float ubicacion;
     string localizacion;
+    //variables monitor
+    string NombreMonitor; 
+    string ApellidosMonitor; 
+    string DNIMonitor; 
+    string CorreoMonitor;
+    int diaMonitor;
+    int mesMonitor; 
+    int anioMonitor; 
+    int TelefonoMonitor;
+    //variables cliente
+    string NombreCliente;
+    string ApellidosCliente;
+    string DNICliente; 
+    string CorreoCliente;
+    string DiscapacidadCliente;
+    int diaCliente;
+    int mesCliente;
+    int anioCliente;
+
 
     if(parque.lee_senderos_parque() == false){
         cout << "Error al leer los datos del fichero sendero" << endl;
@@ -76,10 +95,56 @@ int main(){
 
             break;
             case 2:
+	            cout<<"Nombre(): ";
+            	getline(cin, NombreMonitor);
+            	Monitor.setNombre(NombreMonitor);
+            	cout<<"Apellidos(): ";
+            	getline(cin, ApellidosMonitor);
+	            Monitor.setApellidos(ApellidosMonitor);
+	            cout<<"DNI(): ";
+                getline(cin, DNI)Monitor;
+                Monitor.setDNI(DNIMonitor);
+                cout<<"Correo(): ";
+                getline(cin, CorreoMonitor);
+                Monitor.setCorreo(CorreoMonitor);
+                cout<<"Telefono(): ";
+                cin>>TelefonoMonitor;
+                Monitor.setTelefono(TelefonoMonitor);
+                cout<<"Fecha de nacimiento():\n";
+                cout<<"Dia(): ";
+                cin>>diaMonitor;
+                cout<<"Mes(numero): ";
+                cin>>mesMonitor;
+                cout<<"Anio(): ";
+                cin>>anioMonitor;
+	            Monitor.setFecha(diaMonitor, mesMonitor, anioMonitor);
 
 
             break;
             case 3:
+                cout<<"Nombre(): ";
+                getline(cin, NombreCliente);
+                Monitor.setNombre(NombreCliente);
+                cout<<"Apellidos(): ";
+                getline(cin, ApellidosCliente);
+                Monitor.setApellidos(ApellidosCliente);
+                cout<<"DNI(): ";
+                getline(cin, DNICliente);
+                Monitor.setDNI(DNICliente);
+                cout<<"Correo(): ";
+                getline(cin, CorreoCliente);
+                Monitor.setCorreo(CorreoCliente);
+                cout<<"Discapacidad(): ";
+                getline(cin, DiscapacidadCliente);
+                Monitor.setDiscapacidad(DiscapacidadCliente);
+                cout<<"Fecha de nacimiento():\n";
+                cout<<"Dia(): ";
+                cin>>diaCliente;
+                cout<<"Mes(numero): ";
+                cin>>mesCliente;
+                cout<<"Anio(): ";
+                cin>>anioCliente;
+                Monitor.setFecha(diaCliente, mesCliente, anioCliente);
 
             break;
             case 4:
