@@ -8,7 +8,7 @@
 #include "Monitor.h"
 using namespace std;
 
-Monitor:: Monitor(string Nombre, string Apellidos, string DNI, int dia,int mes, int anio, string Correo, int Telefono ){
+Monitor:: Monitor(string Nombre, string Apellidos, string DNI, int dia, int mes, int anio ,string Correo, int Telefono){
 	setNombre(Nombre);
 	setApellidos(Apellidos);
 	setDNI(DNI);
@@ -16,7 +16,7 @@ Monitor:: Monitor(string Nombre, string Apellidos, string DNI, int dia,int mes, 
 	setTelefono(Telefono);
 }
 
-void Monitor:: setFechas(vector <Fecha> ListaFecha, int count){
+void Monitor:: setFechas(vector <Fecha> ListaFecha_, int count){
 	int dia;
 	int mes;
 	int anio;
@@ -29,47 +29,47 @@ void Monitor:: setFechas(vector <Fecha> ListaFecha, int count){
 	cout<<"\nIntroducir anio\n";
 	cin>>anio;
 
-	ListaFecha.push_back(Fecha());
-	ListaFecha[count].dia=dia;
-	ListaFecha[count].mes=mes;
-	ListaFecha[count].anio=anio;
+	ListaFecha_.push_back(Fecha());
+	ListaFecha_[count].dia=dia;
+	ListaFecha_[count].mes=mes;
+	ListaFecha_[count].anio=anio;
 
 	for(int j=0; j<count-1; j++){
 			for (int k=j+1; k<count; k++){
-				if(ListaFecha[j].anio>ListaFecha[k].anio){
-					aux=ListaFecha[j].anio;
-					ListaFecha[j].anio=ListaFecha[k].anio;
-					ListaFecha[k].anio=aux;
-					aux=ListaFecha[j].mes;
-					ListaFecha[j].mes=ListaFecha[k].mes;
-					ListaFecha[k].mes=aux;
-					aux=ListaFecha[j].dia;
-					ListaFecha[j].dia=ListaFecha[k].dia;
-					ListaFecha[k].dia=aux;	
+				if(ListaFecha_[j].anio>ListaFecha_[k].anio){
+					aux=ListaFecha_[j].anio;
+					ListaFecha_[j].anio=ListaFecha_[k].anio;
+					ListaFecha_[k].anio=aux;
+					aux=ListaFecha_[j].mes;
+					ListaFecha_[j].mes=ListaFecha_[k].mes;
+					ListaFecha_[k].mes=aux;
+					aux=ListaFecha_[j].dia;
+					ListaFecha_[j].dia=ListaFecha_[k].dia;
+					ListaFecha_[k].dia=aux;	
 				}
 				else {
-					if(ListaFecha[j].anio==ListaFecha[k].anio && ListaFecha[j].mes>ListaFecha[j].mes){
-						aux=ListaFecha[j].anio;
-						ListaFecha[j].anio=ListaFecha[k].anio;
-						ListaFecha[k].anio=aux;
-						aux=ListaFecha[j].mes;
-						ListaFecha[j].mes=ListaFecha[k].mes;
-						ListaFecha[k].mes=aux;
-						aux=ListaFecha[j].dia;
-						ListaFecha[j].dia=ListaFecha[k].dia;
-						ListaFecha[k].dia=aux;
+					if(ListaFecha_[j].anio==ListaFecha_[k].anio && ListaFecha_[j].mes>ListaFecha_[j].mes){
+						aux=ListaFecha_[j].anio;
+						ListaFecha_[j].anio=ListaFecha_[k].anio;
+						ListaFecha_[k].anio=aux;
+						aux=ListaFecha_[j].mes;
+						ListaFecha_[j].mes=ListaFecha_[k].mes;
+						ListaFecha_[k].mes=aux;
+						aux=ListaFecha_[j].dia;
+						ListaFecha_[j].dia=ListaFecha_[k].dia;
+						ListaFecha_[k].dia=aux;
 					} 
 				else {
-					if (ListaFecha[j].anio==ListaFecha[k].anio && ListaFecha[j].mes==ListaFecha[j].mes && ListaFecha[j].dia>ListaFecha[k].dia){
-						aux=ListaFecha[j].anio;
-						ListaFecha[j].anio=ListaFecha[k].anio;
-						ListaFecha[k].anio=aux;
-						aux=ListaFecha[j].mes;
-						ListaFecha[j].mes=ListaFecha[k].mes;
-						ListaFecha[k].mes=aux;
-						aux=ListaFecha[j].dia;
-						ListaFecha[j].dia=ListaFecha[k].dia;
-						ListaFecha[k].dia=aux;
+					if (ListaFecha_[j].anio==ListaFecha_[k].anio && ListaFecha_[j].mes==ListaFecha_[j].mes && ListaFecha_[j].dia>ListaFecha_[k].dia){
+						aux=ListaFecha_[j].anio;
+						ListaFecha_[j].anio=ListaFecha_[k].anio;
+						ListaFecha_[k].anio=aux;
+						aux=ListaFecha_[j].mes;
+						ListaFecha_[j].mes=ListaFecha_[k].mes;
+						ListaFecha_[k].mes=aux;
+						aux=ListaFecha_[j].dia;
+						ListaFecha_[j].dia=ListaFecha_[k].dia;
+						ListaFecha_[k].dia=aux;
 					}
 				}
 				}
@@ -77,4 +77,8 @@ void Monitor:: setFechas(vector <Fecha> ListaFecha, int count){
 		}
 }
 
-
+void Monitor:: setFecha(Fecha Fecha_, int dia,int mes, int anio){
+	Fecha_.dia=dia;
+	Fecha_.mes=mes;
+	Fecha_.anio=anio;
+}
