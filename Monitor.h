@@ -39,8 +39,10 @@ public:
 	inline string getCorreo()const{return Correo_;}
 	inline void setTelefono(int Telefono){Telefono_=Telefono;}
 	inline int getTelefono()const{return Telefono_ ;}
-    void setFechas(vector <Fecha> ListaFecha, int count);
+    void setFechas(vector <Fecha> ListaFecha_, int count);
 	inline vector <Fecha> getFechas(){return ListaFecha_;}
+	void setFecha(Fecha Fecha_, int dia, int mes, int anio);
+	inline Fecha getFecha(){return Fecha_;}
 };
 
 
