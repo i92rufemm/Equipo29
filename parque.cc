@@ -349,6 +349,9 @@ bool Parque::escribir_senderos_parque(){
 	} 
     for(std::vector<Sendero>::iterator i = senderos_.begin(); i != senderos_.end(); i++){
         fichero << i->getCodigo()<< ",";
+        fichero << i->getParque().getNombre() << ",";
+        fichero << i->getParque().getSuperficie() << ",";
+
         fichero << i->getDificultad() << ",";
         fichero << i->getDisponibilidad() << ",";
         fichero << i->getLongitud() << "\n";
@@ -359,7 +362,7 @@ bool Parque::escribir_senderos_parque(){
 bool Parque::lee_senderos_parque(){
     
     string codigo,dificultad,disponibilidad,longitud;
-    
+    string nombreparque,superficie,ubicacion,localizacion;
     ifstream fichero;
 
     fichero.open("senderos.txt",ios::in);
@@ -370,11 +373,15 @@ bool Parque::lee_senderos_parque(){
 	}
 
     while(getline(fichero,codigo, ',')){
+        getline(fichero,nombreparque,',');
+        getline(fichero,superficie,',');
+        getline(fichero,ubicacion,',');
+        getline(fichero,localizacion,',');
         getline(fichero,dificultad,',');
         getline(fichero,disponibilidad,',');
         getline(fichero,longitud,'\n');
-
-        Sendero sendero(codigo,dificultad,disponibilidad,stof(longitud));//codigo es un parametro obligatorio
+        Parque parque(nombreparque,stof(superficie),stof(ubicacion),localizacion);
+        Sendero sendero(codigo,parque,dificultad,disponibilidad,stof(longitud));//codigo es un parametro obligatorio
 
         senderos_.push_back(sendero);
     }

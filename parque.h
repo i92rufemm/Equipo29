@@ -37,6 +37,7 @@ public:
     Parque(string nombreparque="",float superficie = 0.0,float ubicacion = 0.0,string localizacion = "");
     inline string getNombre()const{return nombreparque_;}
     inline float getSuperficie()const{return superficie_;}
+    inline string getLocalizacion()const{return localizacion_;}
     inline float getUbicacion()const{return ubicacion_;}
     inline list<string> getPremios()const{return premios_;}
     inline vector<Sendero> getSenderos()const{return senderos_;}
