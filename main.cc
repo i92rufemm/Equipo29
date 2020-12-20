@@ -97,19 +97,19 @@ int main(){
             case 2:
 	            cout<<"Nombre(): ";
             	getline(cin, NombreMonitor);
-            	Monitor.setNombre(NombreMonitor);
+            	monitor.setNombre(NombreMonitor);
             	cout<<"Apellidos(): ";
             	getline(cin, ApellidosMonitor);
-	            Monitor.setApellidos(ApellidosMonitor);
+	            monitor.setApellidos(ApellidosMonitor);
 	            cout<<"DNI(): ";
-                getline(cin, DNI)Monitor;
-                Monitor.setDNI(DNIMonitor);
+                getline(cin, DNIMonitor);
+                monitor.setDNI(DNIMonitor);
                 cout<<"Correo(): ";
                 getline(cin, CorreoMonitor);
-                Monitor.setCorreo(CorreoMonitor);
+                monitor.setCorreo(CorreoMonitor);
                 cout<<"Telefono(): ";
                 cin>>TelefonoMonitor;
-                Monitor.setTelefono(TelefonoMonitor);
+                monitor.setTelefono(TelefonoMonitor);
                 cout<<"Fecha de nacimiento():\n";
                 cout<<"Dia(): ";
                 cin>>diaMonitor;
@@ -117,26 +117,26 @@ int main(){
                 cin>>mesMonitor;
                 cout<<"Anio(): ";
                 cin>>anioMonitor;
-	            Monitor.setFecha(diaMonitor, mesMonitor, anioMonitor);
+	            monitor.setFecha(diaMonitor, mesMonitor, anioMonitor);
 
 
             break;
             case 3:
                 cout<<"Nombre(): ";
                 getline(cin, NombreCliente);
-                Monitor.setNombre(NombreCliente);
+                cliente.setNombre(NombreCliente);
                 cout<<"Apellidos(): ";
                 getline(cin, ApellidosCliente);
-                Monitor.setApellidos(ApellidosCliente);
+                cliente.setApellidos(ApellidosCliente);
                 cout<<"DNI(): ";
                 getline(cin, DNICliente);
-                Monitor.setDNI(DNICliente);
+                cliente.setDNI(DNICliente);
                 cout<<"Correo(): ";
                 getline(cin, CorreoCliente);
-                Monitor.setCorreo(CorreoCliente);
+                cliente.setCorreo(CorreoCliente);
                 cout<<"Discapacidad(): ";
                 getline(cin, DiscapacidadCliente);
-                Monitor.setDiscapacidad(DiscapacidadCliente);
+                cliente.setDiscapacidad(DiscapacidadCliente);
                 cout<<"Fecha de nacimiento():\n";
                 cout<<"Dia(): ";
                 cin>>diaCliente;
@@ -144,7 +144,7 @@ int main(){
                 cin>>mesCliente;
                 cout<<"Anio(): ";
                 cin>>anioCliente;
-                Monitor.setFecha(diaCliente, mesCliente, anioCliente);
+                cliente.setFecha(diaCliente, mesCliente, anioCliente);
 
             break;
             case 4:

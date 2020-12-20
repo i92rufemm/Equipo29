@@ -20,7 +20,7 @@ private:
 	string DNI_;
 	string Correo_;
 	int Telefono_;
-	struct Fecha Fecha_;
+	struct Fecha fecha_;
 	vector <Fecha> ListaFecha_;
 	int count_;
 
@@ -31,8 +31,6 @@ public:
 	inline string getNombre()const{return Nombre_;}
 	inline void setApellidos(string Apellidos){Apellidos_=Apellidos;}
 	inline string getApellidos()const{return Apellidos_;}
-	void setFechaN(Fecha);//Ahora cuando averigue como funciona la pongo
-	Fecha getFechaN()const{return Fecha_;}
 	inline void setDNI(string DNI){DNI_=DNI;}
 	inline string getDNI()const{return DNI_;}
 	inline void setCorreo(string Correo){Correo_=Correo;}
@@ -41,8 +39,8 @@ public:
 	inline int getTelefono()const{return Telefono_ ;}
     void setFechas(vector <Fecha> ListaFecha_, int count);
 	inline vector <Fecha> getFechas(){return ListaFecha_;}
-	void setFecha(Fecha Fecha_, int dia, int mes, int anio);
-	inline Fecha getFecha(){return Fecha_;}
+	void setFecha(int dia, int mes, int anio);
+	inline Fecha getFecha(){return fecha_;}
 };
 
 

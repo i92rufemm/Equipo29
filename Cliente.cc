@@ -9,7 +9,7 @@ Cliente::Cliente(string Nombre, string Apellidos,int dia,int mes, int anio, stri
 	setDiscapacidad(Discapacidad);
 }
 
-void Cliente:: setFecha(Fecha Fecha_, int dia,int mes, int anio){
+void Cliente:: setFecha(int dia,int mes, int anio){
 	Fecha_.dia=dia;
 	Fecha_.mes=mes;
 	Fecha_.anio=anio;

@@ -36,7 +36,7 @@ public:
 	string getCorreo()const{return Correo_;}
 	void setDiscapacidad(string Discapacidad){Discapacidad_=Discapacidad;}
 	string getDiscapacidad()const{return Discapacidad_;}
-	void setFecha(Fecha Fecha_, int dia, int mes, int anio);
+	void setFecha(int dia, int mes, int anio);
 	inline Fecha getFecha(){return Fecha_;}
 };
 

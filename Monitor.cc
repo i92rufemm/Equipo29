@@ -77,8 +77,8 @@ void Monitor:: setFechas(vector <Fecha> ListaFecha_, int count){
 		}
 }
 
-void Monitor:: setFecha(Fecha Fecha_, int dia,int mes, int anio){
-	Fecha_.dia=dia;
-	Fecha_.mes=mes;
-	Fecha_.anio=anio;
+void Monitor:: setFecha(int dia,int mes, int anio){
+	fecha_.dia=dia;
+	fecha_.mes=mes;
+	fecha_.anio=anio;
 }
