@@ -10,7 +10,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-
+#include "Cliente.h"
 #include "estructuras.h"
 #include "ruta.h"
 #include "sendero.h"

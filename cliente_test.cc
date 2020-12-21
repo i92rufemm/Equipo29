@@ -12,7 +12,7 @@ TEST(Cliente, ConstructorParametrosDefecto) {
   EXPECT_EQ("0", m.getApellidos());
   EXPECT_EQ("0", m.getDNI());
   EXPECT_EQ("0", m.getDiscapacidad());
-  EXPECT_EQ("0", m.getTelefono());
+  EXPECT_EQ("0", m.getCorreo());
   EXPECT_EQ(0, m.getFecha().dia);
   EXPECT_EQ(0, m.getFecha().mes);
   EXPECT_EQ(0, m.getFecha().anio);
@@ -20,7 +20,7 @@ TEST(Cliente, ConstructorParametrosDefecto) {
 
 
 TEST(Cliente, ConstructorParametros) {
-  Cliente m("Adolfo", "Martinez Carrasco", "52457878V", 10, 2, 1996 ,"adolfin_Carrasquito@gmail.com", "Requiere de muletas para andar");
+  Cliente m("Adolfo", "Martinez Carrasco",  10, 2, 1996 ,"52457878V","adolfin_Carrasquito@gmail.com", "Requiere de muletas para andar");
 
   EXPECT_EQ("Adolfo", m.getNombre());
   EXPECT_EQ("Martinez Carrasco", m.getApellidos());
