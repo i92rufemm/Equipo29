@@ -9,11 +9,8 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-#include "estructuras.h"
 #include "parque.h"
-#include "Monitor.h"
-#include "Cliente.h"
-#include "sendero.h"
+
 
 using namespace std;
 
