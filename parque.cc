@@ -192,7 +192,7 @@ bool Parque::escribir_clientes_parque(){
 
 for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
 
-    fecha = i->getFechaN();
+    fecha = i->getFecha();
 
     fichero << i->getNombre() << ',';
 	fichero << i->getApellidos() << ',';
@@ -273,7 +273,7 @@ bool Parque::escribir_monitores_parque(){
 
 for( std::vector<Monitor>::iterator i = monitores_.begin(); i != monitores_.end(); i++ ){
 
-    fecha = i->getFechaN();
+    fecha = i->getFecha();
 
     fichero << i->getNombre() << ',';
 	fichero << i->getApellidos() << ',';

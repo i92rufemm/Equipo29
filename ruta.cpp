@@ -278,7 +278,7 @@ bool Ruta::escribir_clientes_rutas(){
 
 for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
 
-    fecha = i->getFechaN();
+    fecha = i->getFecha();
 
     fichero << i->getNombre() << ',';
 	fichero << i->getApellidos() << ',';
