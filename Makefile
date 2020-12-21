@@ -29,5 +29,8 @@ cliente.o: Cliente.h Cliente.cc
 parque.o: parque.h parque.cc
 ruta.o: ruta.h ruta.cpp
 sendero.o: sendero.h sendero.cc
-program_test: monitor.o cliente.o parque.o ruta.o sendero.o gtest_main.a
+
+program_test.o: program_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
+
+program_test: monitor.o cliente.o parque.o ruta.o sendero.o program_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
