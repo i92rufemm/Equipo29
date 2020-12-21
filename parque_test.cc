@@ -27,3 +27,20 @@ TEST(Parque, Seleccionar_cliente){
 
 
 }
+
+TEST(Parque, Comprobar_existencia_sendero){
+
+    Parque p1("chupilandia");
+
+    Sendero s1("a1",p1);
+    Sendero s2("a2",p1);
+    Sendero s3("a3",p1);
+
+    EXPECT_TRUE( p1.comprobarCodigo("a1") );
+
+    EXPECT_FALSE( p1.comprobarCodigo("a5") );
+
+    EXPECT_TRUE( p1.comprobarCodigo("a3") );
+
+
+}
