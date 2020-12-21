@@ -10,6 +10,10 @@
 #include <list>
 #include <algorithm>
 #include "parque.h"
+#include "ruta.h"
+#include "sendero.h"
+#include "Monitor.h"
+#include "Cliente.h"
 
 
 using namespace std;

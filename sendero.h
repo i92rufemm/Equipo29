@@ -1,8 +1,9 @@
 #ifndef SENDERO_H
 #define SENDERO_H
-#include "parque.h"
+
 #include <iostream>
 #include <string>
+#include "parque.h"
 using namespace std;
 class Sendero
 {
