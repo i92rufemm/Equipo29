@@ -14,6 +14,7 @@ Monitor:: Monitor(string Nombre, string Apellidos, string DNI, int dia, int mes,
 	setDNI(DNI);
 	setCorreo(Correo);
 	setTelefono(Telefono);
+	setFecha(dia,mes,anio);
 }
 
 void Monitor:: setFechas(vector <Fecha> ListaFecha_, int count){
