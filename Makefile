@@ -30,7 +30,25 @@ parque.o: parque.h parque.cc
 ruta.o: ruta.h ruta.cpp
 sendero.o: sendero.h sendero.cc
 
-program_test.o: program_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
+monitor_test.o: monitor_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
+cliente_test.o: cliente_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
+parque_test.o: parque_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
+sendero_test.o: sendero_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
+ruta_test.o: ruta_test.cc Monitor.h Monitor.cc Cliente.h Cliente.cc parque.h parque.cc ruta.h ruta.cpp sendero.h sendero.cc
 
-program_test: monitor.o cliente.o parque.o ruta.o sendero.o program_test.o gtest_main.a
+
+
+monitor_test: monitor.o cliente.o parque.o ruta.o sendero.o monitor_test.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+cliente_test: monitor.o cliente.o parque.o ruta.o sendero.o cliente_test.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+parque_test: monitor.o cliente.o parque.o ruta.o sendero.o parque_test.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+sendero_test: monitor.o cliente.o parque.o ruta.o sendero.o sendero_test.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+ruta_test: monitor.o cliente.o parque.o ruta.o sendero.o ruta_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
