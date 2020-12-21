@@ -179,7 +179,11 @@ int main(){
             cout << "Imprimiendo senderistas de la ruta"<<endl;
             ruta.imprimirClientes();
             break;
+            case 7:
             
+
+            break;
+
             
 
 
