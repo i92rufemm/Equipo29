@@ -28,8 +28,6 @@ public:
 	string getNombre()const{return Nombre_;}
 	void setApellidos(string Apellidos){Apellidos_=Apellidos;}
 	string getApellidos()const{return Apellidos_;}
-	void setFechaN(Fecha);//Ahora cuando averigue como funciona la pongo
-	Fecha getFechaN()const{return Fecha_;}
 	void setDNI(string DNI){DNI_=DNI;}
 	string getDNI()const{return DNI_;}
 	void setCorreo(string Correo){Correo_=Correo;}
