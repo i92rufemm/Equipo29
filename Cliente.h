@@ -5,8 +5,8 @@
  *      Author: Victor Rojas Munoz
  */
 
-#ifndef CLIENTE_H_
-#define CLIENTE_H_
+#ifndef CLIENTE_H
+#define CLIENTE_H
 #include "estructuras.h"
 #include <iostream>
 #include <string>

@@ -1,5 +1,5 @@
-#ifndef _PARQUE.h_
-#define _PARQUE.h_
+#ifndef PARQUE_H
+#define PARQUE_H
 
 
 #include <iostream>

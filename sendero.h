@@ -1,5 +1,5 @@
-#ifndef _SENDERO.h_
-#define _SENDERO.h_
+#ifndef SENDERO_H
+#define SENDERO_H
 #include "parque.h"
 #include <iostream>
 #include <string>

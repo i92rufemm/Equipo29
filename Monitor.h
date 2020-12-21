@@ -5,8 +5,8 @@
  *      Author: Victor Rojas Munoz
  */
 
-#ifndef MONITOR_H_
-#define MONITOR_H_
+#ifndef MONITOR_H
+#define MONITOR_H
 #include <iostream>
 #include <string>
 #include "estructuras.h"
