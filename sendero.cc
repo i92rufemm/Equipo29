@@ -4,8 +4,8 @@ using namespace std;
 //para poder hacer el commit
 Sendero::Sendero(string codigo,Parque parque,string dificultad,string disponibilidad,float longitud)
 {
-    setCodigo(codigo);
-    setParque(parque);
+    codigo_ = codigo;
+    parque_ = parque;
     dificultad_ = dificultad;
     disponibilidad_ = disponibilidad;
     longitud_ = longitud;

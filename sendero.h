@@ -5,6 +5,7 @@
 #include <string>
 #include "parque.h"
 using namespace std;
+
 class Sendero
 {
 private:
