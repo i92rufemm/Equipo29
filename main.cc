@@ -42,6 +42,8 @@ int main(){
     int diaCliente;
     int mesCliente;
     int anioCliente;
+    //variables ruta
+    int numeroruta;
 
 
     if(parque.lee_senderos_parque() == false){
@@ -71,7 +73,7 @@ int main(){
             cout << "(3)Registrar nuevo monitor" << endl;
             cout << "(4)Registrar nuevo parque" << endl;
             cout << "(5)Cancelar ruta" << endl;
-            cout << "(6)" << endl;
+            cout << "(6)Imprimir senderistas" << endl;
             cout << "(7)" << endl;
             cout << "(8)" << endl;
             cout << "(9)" << endl;
@@ -162,6 +164,8 @@ int main(){
             parque.setLocalizacion(localizacion);
             break;
             case 5:
+            cout << "Selecciona la ruta" << endl;
+            ruta = parque.Seleccionar_ruta();
             if(parque.Cancelar_ruta(ruta)){
                 cout << "La ruta se ha cancelado con exito" << endl;
             }
@@ -169,6 +173,17 @@ int main(){
                 cout << "La ruta no se ha podido cancelar" << endl;
             }
             break;
+            case 6:
+            cout << "SELECCIONA LA RUTA" << endl;
+            ruta = parque.Seleccionar_ruta();
+            cout << "Imprimiendo senderistas de la ruta"<<endl;
+            ruta.imprimirClientes();
+            break;
+            
+            
+
+
+
         }
       
     }while(key == "si" || key == "Si");

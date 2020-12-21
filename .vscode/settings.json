@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "fstream": "cpp",
         "cstring": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "ostream": "cpp"
     }
 }
