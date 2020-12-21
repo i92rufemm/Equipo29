@@ -52,6 +52,9 @@ public:
     Sendero Seleccionar_sendero();
     bool Cancelar_ruta(Ruta rutas);
 
+    Cliente Seleccionar_cliente(string DNI); 
+    Monitor Seleccionar_Monitor(string DNI); //pendiente
+
     //2º sprint cabecera funciones para guardar y leer los datos del fichero
     bool escribir_datos_rutas();
     bool lee_rutas();
@@ -64,6 +67,13 @@ public:
 
     bool escribir_senderos_parque();
     bool lee_senderos_parque();
+
+
+   bool AddCliente(Cliente cliente);
+   bool DeleteCliente(Cliente cliente);
+
+   bool AddMonitor(Monitor monitor);
+   bool DeleteMonitor(Monitor monitor);
     
 };
 

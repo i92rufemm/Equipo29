@@ -58,6 +58,8 @@ Ruta Parque::Seleccionar_ruta(){
             return *it;
         }
     }    
+
+    cout << "ruta no encontrada \n";
 }
 Sendero Parque::Seleccionar_sendero(){
     string codigo;
@@ -388,3 +390,100 @@ bool Parque::lee_senderos_parque(){
     fichero.close();
     return true;
 }
+
+
+bool Parque::AddCliente(Cliente cliente){
+
+    for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
+
+        if( cliente.getDNI() == i-> getDNI() ){
+            
+            return false;
+        }
+
+    }
+
+    clientes_.push_back(cliente);
+
+    return true;
+
+}
+
+bool Parque::DeleteCliente( Cliente cliente){
+
+    for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
+
+        if( cliente.getDNI() == i-> getDNI() ){
+            
+            clientes_.erase(i);
+            return true;
+        }
+
+    }
+
+    return false;
+}
+
+
+Cliente Parque::Seleccionar_cliente(string DNI){
+
+    for( std::vector<Cliente>::iterator i = clientes_.begin(); i != clientes_.end(); i++ ){
+
+        if( DNI == i-> getDNI() ){
+            
+            return *i;
+        }
+
+    }
+
+    cout<< "cliente no encontrado \n";
+}
+
+
+bool Parque::AddMonitor(Monitor monitor){
+
+    for( std::vector<Monitor>::iterator i = monitores_.begin(); i != monitores_.end(); i++ ){
+
+        if( monitor.getDNI() == i-> getDNI() ){
+            
+            return false;
+        }
+
+    }
+
+    monitores_.push_back(monitor);
+
+    return true;
+
+}
+
+bool Parque::DeleteMonitor( Monitor monitor){
+
+    for( std::vector<Monitor>::iterator i = monitores_.begin(); i != monitores_.end(); i++ ){
+
+        if( monitor.getDNI() == i-> getDNI() ){
+            
+            monitores_.erase(i);
+            return true;
+        }
+
+    }
+
+    return false;
+}
+
+
+Monitor Parque::Seleccionar_Monitor(string DNI){
+
+    for( std::vector<Monitor>::iterator i = monitores_.begin(); i != monitores_.end(); i++ ){
+
+        if( DNI == i-> getDNI() ){
+            
+            return *i;
+        }
+
+    }
+
+    cout<< "Monitor no encontrado \n";
+}
+

@@ -7,7 +7,7 @@
 
 
 int main(){
-    Parque parque;
+    Parque parque("por_defecto");
     Monitor monitor;
     Cliente cliente;
     Sendero sendero("122",parque);
@@ -46,22 +46,18 @@ int main(){
     int numeroruta;
 
 
-    if(parque.lee_senderos_parque() == false){
-        cout << "Error al leer los datos del fichero sendero" << endl;
+    if ( !parque.lee_senderos_parque() )
         exit(-1);
-    }
-    if(parque.lee_rutas() == false){
-        cout << "Error al leer los datos del fichero rutas" << endl;
+
+    if( !parque.lee_rutas() )
         exit(-1);
-    }
-    if(parque.lee_monitores_parque() == false){
-        cout << "Error al leer los datos de los monitores" << endl;
+
+    if( !parque.lee_monitores_parque() )
         exit(-1);
-    }
-    if(parque.lee_clientes_parque() == false){
-        cout << "Error al leer los datos de los clientes del parque" << endl;
+
+    if( !parque.lee_clientes_parque() )
         exit(-1);
-    }
+    
 
 
     cout << "Bienvenid@ a la aplicacion de los parques naturales de Cordoba\n ¿que quieres hacer?" << endl;
@@ -69,16 +65,32 @@ int main(){
     do{
         do{
             cout << "(1)Registrar nuevo sendero" << endl;                
-            cout << "(2)Registrar nuevo cliente" << endl;
-            cout << "(3)Registrar nuevo monitor" << endl;
+            cout << "(2)Registrar nuevo monitor" << endl;
+            cout << "(3)Registrar nuevo cliente" << endl;
             cout << "(4)Registrar nuevo parque" << endl;
             cout << "(5)Cancelar ruta" << endl;
             cout << "(6)Imprimir senderistas" << endl;
-            cout << "(7)" << endl;
+            cout << "(7)Registrar nueva ruta" << endl;
             cout << "(8)" << endl;
             cout << "(9)" << endl;
 
+        if( parque.getNombre() != "por_defecto" && !parque.getSenderos().empty() )
             cin >> op;
+
+
+        else if(parque.getNombre() == "por_defecto"){
+
+            cout << "Debe crear el parque, ya que no existe ninguno";
+            op = 4;
+        }
+
+        else if(parque.getSenderos().empty() ){
+
+            cout << "Debe crear senderos, ya que no existe ninguno";
+            op = 1;
+        }
+
+    
 
         }while(op < 1 || op > 9 );
 
@@ -121,6 +133,8 @@ int main(){
                 cin>>anioMonitor;
 	            monitor.setFecha(diaMonitor, mesMonitor, anioMonitor);
 
+                parque.AddMonitor(monitor);
+
 
             break;
             case 3:
@@ -147,8 +161,11 @@ int main(){
                 cout<<"Anio(): ";
                 cin>>anioCliente;
                 cliente.setFecha(diaCliente, mesCliente, anioCliente);
+                
+                parque.AddCliente(cliente);
 
             break;
+
             case 4:
             cout << "Nombre del parque: ";
             getline(cin,nombreparque);
@@ -163,6 +180,7 @@ int main(){
             getline(cin,localizacion);
             parque.setLocalizacion(localizacion);
             break;
+
             case 5:
             cout << "Selecciona la ruta" << endl;
             ruta = parque.Seleccionar_ruta();
@@ -189,14 +207,22 @@ int main(){
 
 
         }
+
+        cout<< "¿Quieres realizar otra operacion? si/no \n";
+        getline(cin,key);
       
     }while(key == "si" || key == "Si");
 
     
 
+    if( parque.escribir_datos_rutas() || parque.escribir_clientes_parque() || parque.escribir_monitores_parque() || parque.escribir_senderos_parque() )
+        cout << "Datos guardados con exito \n";
+
+    else
+        cout << "Error al guardar datos \n";
 
 
-
+    return 0;
 
 
 
