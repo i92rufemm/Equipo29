@@ -1,3 +1,16 @@
+/*
+    Este fichero incluye algunas de las funciones que mostraria la interfaz del programa.
+
+    Al igual que solo hemos hecho el test de alguna de ellas, solo hemos implementado algunas en la interfaz
+    a modo de muestra, para no prolongar mas la tarea.
+
+
+*/
+
+#include <iostream>
+#include <ctime>
+#include <vector>
+
 #include "parque.h"
 #include "estructuras.h"
 #include "sendero.h"
@@ -6,7 +19,12 @@
 #include "ruta.h"
 
 
+
+
 int main(){
+
+    struct FechaTiempo local;
+
     Parque parque("por_defecto");
     Monitor monitor;
     Cliente cliente;
@@ -80,8 +98,9 @@ int main(){
             cout << "(5)Cancelar ruta" << endl;
             cout << "(6)Imprimir senderistas" << endl;
             cout << "(7)Registrar nueva ruta" << endl;
-            cout << "(8)" << endl;
-            cout << "(9)" << endl;
+            cout << "(8)Modificar disponibilidad sendero" << endl;
+            cout << "(9)Aniadir cliente a ruta" << endl;
+            cout << "(10)salir del programa" << endl;
 
         if( parque.getNombre() != "por_defecto" && !parque.getSenderos().empty() )
             cin >> op;
@@ -104,6 +123,7 @@ int main(){
         }while(op < 1 || op > 9 );
 
         switch(op){
+            
             case 1:
                 cout << "Dificultad(): ";
                 getline(cin,dificultad);
@@ -118,6 +138,7 @@ int main(){
                 parque.addSendero(sendero);
 
             break;
+
             case 2:
 	            cout<<"Nombre(): ";
             	getline(cin, NombreMonitor);
@@ -147,6 +168,7 @@ int main(){
 
 
             break;
+
             case 3:
                 cout<<"Nombre(): ";
                 getline(cin, NombreCliente);
@@ -177,117 +199,181 @@ int main(){
             break;
 
             case 4:
-            cout << "Nombre del parque: ";
-            getline(cin,nombreparque);
-            parque.setNombre(nombreparque);
-            cout << "Superficie(m²): ";
-            cin >> superficie;
-            parque.setSuperficie(superficie);
-            cout << "Ubicacion: ";
-            cin >> ubicacion;
-            parque.setUbicacion(ubicacion);
-            cout << "Localizacion(ciudad provincia): ";
-            getline(cin,localizacion);
-            parque.setLocalizacion(localizacion);
+
+                cout << "Nombre del parque: ";
+                getline(cin,nombreparque);
+                parque.setNombre(nombreparque);
+                cout << "Superficie(m²): ";
+                cin >> superficie;
+                parque.setSuperficie(superficie);
+                cout << "Ubicacion: ";
+                cin >> ubicacion;
+                parque.setUbicacion(ubicacion);
+                cout << "Localizacion(ciudad provincia): ";
+                getline(cin,localizacion);
+                parque.setLocalizacion(localizacion);
             break;
 
             case 5:
-            cout << "Selecciona la ruta,dime el numero de la ruta" << endl;
-            cin >> numeroruta;
-            ruta = parque.Seleccionar_ruta(numeroruta);
-            if(parque.Cancelar_ruta(ruta)){
-                cout << "La ruta se ha cancelado con exito" << endl;
-            }
-            else{
-                cout << "La ruta no se ha podido cancelar" << endl;
-            }
-            break;
-            case 6:
-            cout << "SELECCIONA LA RUTA" << endl;
-            ruta = parque.Seleccionar_ruta(numeroruta);
-            cout << "Imprimiendo senderistas de la ruta"<<endl;
-            ruta.imprimirClientes();
-            break;
-            case 7:
-            aux = (parque.getRutas().size()+1);
-            cout << "Dime el dni del monitor que va a realizar esta ruta" << endl;
-            getline(cin,DNIMonitor);
-            if(parque.getMonitores().empty()){
-                cout << "No hay monitores registrados"<< endl;
-                break;
-            }
-            if (!parque.comprobarDNI(DNIMonitor))
-            {
-                cout << "El monitor no esta registrado" << endl;
-                break;
-            }
-            
-            monitor = parque.Seleccionar_Monitor(DNIMonitor);
-            
-            if(!ruta.setFecha(dia,mes,anio)){
-                cout << "La fecha no esta disponible" << endl;
-                break;
-            }
-            if(parque.getSenderos().empty()){
-                cout << "No existen senderos registrados" << endl;
-                break;
-            }
-            do{
 
-                cout << "Codigo del sendero que quieres anadir a ruta" << endl;
-                getline(cin,codigo);
-                
-                if(parque.comprobarCodigo(codigo)){
-                     sendero = parque.Seleccionar_sendero(codigo);
-                     aux = ruta.addSendero(sendero);
-                     if(aux == -1){
-                        cout << "Sendero no disponible"<< endl;
+                cout << "Selecciona la ruta,dime el numero de la ruta" << endl;
+                cin >> numeroruta;
+                ruta = parque.Seleccionar_ruta(numeroruta);
 
-                    }
-               
-                     if(aux == -2){
-                        cout << "Sendero ya anadido"<< endl;
 
-                    }
-                     if(aux == 1)   
-                        cout << "Sendero anadido" << endl;            
-              
+                if( !parque.ComprobarTiempo(ruta) ){
+
+                    cout << "demasiado tarde para modificar la ruta\n";
+                    break;
+                }
+
+
+                if(parque.Cancelar_ruta(ruta)){
+                    cout << "La ruta se ha cancelado con exito" << endl;
                 }
                 else{
-                    cout << "Sendero no encontrado" << endl;
+                    cout << "La ruta no se ha podido cancelar" << endl;
                 }
-                cout << "Quiere anadir otro sendero(Si/No)" << endl;
-                
-                getline(cin,key);
+            break;
 
-            }while(key == "Si");
-            ruta.setMonitor(monitor);
-            ruta.setNumero(aux);
-            ruta.setHora(horas,minutos);
-            cout << "Aforo: ";
-            cin >> aforo;
-            ruta.setAforo(aforo);
-            ruta.setDuracion(duracion);
-            ruta.setLongitud();
-            if(parque.AddRuta(ruta)){
-                cout << "Ruta anadida con exito" << endl;
-            }
-            else{
-                cout << "Error al anadir la ruta" << endl;
-            }
+            case 6:
+
+                cout << "SELECCIONA LA RUTA" << endl;
+                ruta = parque.Seleccionar_ruta(numeroruta);
+                cout << "Imprimiendo senderistas de la ruta"<<endl;
+                ruta.imprimirClientes();
+            break;
+
+            case 7:
+                aux = (parque.getRutas().size()+1);
+                cout << "Dime el dni del monitor que va a realizar esta ruta" << endl;
+                getline(cin,DNIMonitor);
+                if(parque.getMonitores().empty()){
+                    cout << "No hay monitores registrados"<< endl;
+                    break;
+                }
+                if (!parque.comprobarDNI(DNIMonitor))
+                {
+                    cout << "El monitor no esta registrado" << endl;
+                    break;
+                }
+                
+                monitor = parque.Seleccionar_Monitor(DNIMonitor);
+                
+                if(!ruta.setFecha(dia,mes,anio)){
+                    cout << "La fecha no esta disponible" << endl;
+                    break;
+                }
+                if(parque.getSenderos().empty()){
+                    cout << "No existen senderos registrados" << endl;
+                    break;
+                }
+                do{
+
+                    cout << "Codigo del sendero que quieres anadir a ruta" << endl;
+                    getline(cin,codigo);
+                    
+                    if(parque.comprobarCodigo(codigo)){
+                        sendero = parque.Seleccionar_sendero(codigo);
+                        aux = ruta.addSendero(sendero);
+                        if(aux == -1){
+                            cout << "Sendero no disponible"<< endl;
+
+                        }
+                
+                        if(aux == -2){
+                            cout << "Sendero ya anadido"<< endl;
+
+                        }
+                        if(aux == 1)   
+                            cout << "Sendero anadido" << endl;            
+                
+                    }
+                    else{
+                        cout << "Sendero no encontrado" << endl;
+                    }
+                    cout << "Quiere anadir otro sendero(Si/No)" << endl;
+                    
+                    getline(cin,key);
+
+                }while(key == "Si");
+                ruta.setMonitor(monitor);
+                ruta.setNumero(aux);
+                ruta.setHora(horas,minutos);
+                cout << "Aforo: ";
+                cin >> aforo;
+                ruta.setAforo(aforo);
+                ruta.setDuracion(duracion);
+                ruta.setLongitud();
+                if(parque.AddRuta(ruta)){
+                    cout << "Ruta anadida con exito" << endl;
+                }
+                else{
+                    cout << "Error al anadir la ruta" << endl;
+                }
 
             break;
 
+            case 8:
+
+                cout << "Introduzca el codigo del sendero \n";
+                cin >> codigo;
+
+                cout << "Introduzca la disponibilidad del sendero (abierto/cerrado/en mantenimineto)\n";
+                cin >> disponibilidad;
+
+                if( disponibilidad == "cerrado" || disponibilidad == "en mantenimiento"){
+
+                    parque.Cancelar_ruta_por_sendero(codigo);
+
+                }
+                sendero = parque.Seleccionar_sendero(codigo);
+
+                sendero.setDisponibilidad( disponibilidad );
+
+                cout << "la nueva disponibilidad del sendero es:   "<< disponibilidad << endl;
+
+            break;
             
+
+            case 9:
+
+                cout << "Introduzca DNI del cliente.\n";
+                cin >> DNICliente;
+
+                cliente = parque.Seleccionar_cliente(DNICliente);
+
+                cout << "Introduzca el numero de ruta.\n";
+                cin >> numeroruta;
+
+                ruta = parque.Seleccionar_ruta(numeroruta);
+
+                if( !parque.ComprobarTiempo(ruta) ){
+
+                    cout << "demasiado tarde para aniadir el cliente\n";
+                    break;
+                }
+
+               aux = ruta.addCliente(cliente);
+
+               if( aux == -1 )
+                cout <<"la ruta esta completa.\n";
+
+               if( aux == -2 )
+                cout <<"el cliente ya esta apuntado a la ruta.\n";
+
+               if ( aux == 1 )
+                cout <<"el cliente ha sido añadido a la ruta con exito.\n";  
+            
+
+            break;
 
 
 
         }
 
-        cout<< "¿Quieres realizar otra operacion? si/no \n";
-        getline(cin,key);
       
-    }while(key == "si" || key == "Si");
+    }while( op != 10 );
 
     
 
@@ -299,8 +385,6 @@ int main(){
 
 
     return 0;
-
-
 
 
 }

@@ -237,10 +237,11 @@ void Ruta::imprimirClientes(){
 
     sort(clientes_.begin(), clientes_.end(), sortByApellidos);
 
-    for (Cliente &n : clientes_)
-        cout << n.getDNI() << endl;
-
-
+    for (Cliente &n : clientes_){
+        cout << n.getDNI() << "   ";
+        cout << n.getApellidos() << ", ";
+        cout << n.getNombre() << endl; 
+    }
 
 }
 

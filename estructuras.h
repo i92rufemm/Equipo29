@@ -20,4 +20,14 @@ struct Fecha{
 };
 
 
+struct FechaTiempo{
+
+    int dia;
+    int mes;
+    int anio;
+    int horas;
+    int minutos;
+};
+
+
 #endif

@@ -83,7 +83,13 @@ public:
    bool DeleteRuta(Ruta ruta); 
 
 
-   
+   void Cancelar_ruta_por_sendero( string codigo);
+
+
+
+   struct FechaTiempo TiempoReal();
+
+   bool ComprobarTiempo(Ruta ruta);
     
 };
 

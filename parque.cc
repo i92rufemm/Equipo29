@@ -535,3 +535,104 @@ Monitor Parque::Seleccionar_Monitor(string DNI){
     cout<< "Monitor no encontrado \n";
 }
 
+ void Parque::Cancelar_ruta_por_sendero( string codigo){
+
+     for( std::vector<Ruta>::iterator i = rutas_.begin(); i != rutas_.end(); i++ ){
+
+         for( std::list<Sendero>::iterator it = i->getSenderos().begin(); it != i->getSenderos().end(); i++ ){
+
+            if( it -> getCodigo() == codigo ){
+
+                rutas_.erase(i);
+            }
+
+         }
+
+     }
+
+
+ }
+
+
+
+ struct FechaTiempo Parque:: TiempoReal(){
+
+
+    /*
+    struct tm {
+      int tm_sec;   // seconds of minutes from 0 to 61
+      int tm_min;   // minutes of hour from 0 to 59
+      int tm_hour;  // hours of day from 0 to 24
+      int tm_mday;  // day of month from 1 to 31
+      int tm_mon;   // month of year from 0 to 11
+      int tm_year;  // year since 1900
+      int tm_wday;  // days since sunday
+      int tm_yday;  // days since January 1st
+      int tm_isdst; // hours of daylight savings time
+    }
+    */
+
+    struct FechaTiempo local;
+
+
+    /* fecha/hora actual basado en el sistema actual */
+    time_t now = time(0);
+
+    /* Objeto de una estructura tm con fecha/hora local */
+    tm * time = localtime(&now);
+
+
+
+    local.anio = 1900 + time->tm_year;
+
+    local.dia = time->tm_mday;
+
+    local.mes = (time->tm_mon) +1;
+
+    local.horas = time->tm_hour;
+
+    local.minutos = time->tm_min;
+
+    return local;
+
+ }
+
+ bool Parque::ComprobarTiempo(Ruta ruta){
+    
+     struct FechaTiempo local;
+
+     local = TiempoReal();
+
+    if( ruta.getFecha().anio == local.anio  && ruta.getFecha().mes == local.mes
+        && ruta.getFecha().dia == local.dia ){
+
+        if( ruta.getHora().horas - local.horas   < 0 ){
+
+            return false;
+        }
+
+        if( ruta.getHora().horas - local.horas  == 0  ){
+
+            if( (ruta.getHora().minutos - local.minutos ) < 15 ){
+                
+           return false;
+
+            }
+        }
+
+        if( ruta.getHora().horas - local.horas == 1 ){
+
+            if( ( (ruta.getHora().minutos - local.minutos) + 60 ) < 15 ){
+                
+            return false;
+
+            }
+
+        }
+
+
+    }
+
+    return true;
+
+ }
