@@ -42,18 +42,22 @@ public:
     inline list<string> getPremios()const{return premios_;}
     inline vector<Sendero> getSenderos()const{return senderos_;}
     inline vector<Ruta> getRutas()const{return rutas_;}
+    inline vector<Cliente> getClientes()const{return clientes_;}
+    inline vector<Monitor> getMonitores()const{return monitores_;}
     inline void setNombre(string nombreparque){nombreparque_ = nombreparque;}
     inline bool setSuperficie(float superficie);
     inline void setUbicacion(float ubicacion){ubicacion_ = ubicacion;}
     inline void setLocalizacion(string localizacion){localizacion_ = localizacion;}
     bool addPremios(string premios);
-    bool addSendero(Sendero senderos);
-    Ruta Seleccionar_ruta();
-    Sendero Seleccionar_sendero();
+    bool addSendero(Sendero sendero);
+    bool deleteSendero(Sendero sendero);
+    Ruta Seleccionar_ruta(int numeroruta);
+    Sendero Seleccionar_sendero(string codigo);
     bool Cancelar_ruta(Ruta rutas);
-
     Cliente Seleccionar_cliente(string DNI); 
-    Monitor Seleccionar_Monitor(string DNI); //pendiente
+    Monitor Seleccionar_Monitor(string DNI); 
+    bool comprobarDNI(string DNI);
+    bool comprobarCodigo(string codigo);
 
     //2º sprint cabecera funciones para guardar y leer los datos del fichero
     bool escribir_datos_rutas();
@@ -74,6 +78,12 @@ public:
 
    bool AddMonitor(Monitor monitor);
    bool DeleteMonitor(Monitor monitor);
+   
+   bool AddRuta(Ruta ruta);
+   bool DeleteRuta(Ruta ruta); 
+
+
+   
     
 };
 

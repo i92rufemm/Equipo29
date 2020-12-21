@@ -37,7 +37,7 @@ bool Ruta::setLongitud(){
    return true;
 }
 
-bool Ruta::setFecha(const int dia, const int mes, const int anio, list<Fecha> fechas ){ // setFecha(5,2,2020, parque.getFechas() );
+bool Ruta::setFecha(const int dia, const int mes, const int anio){ // setFecha(5,2,2020, parque.getFechas() );
 
     struct Fecha aux;
 
@@ -45,18 +45,8 @@ bool Ruta::setFecha(const int dia, const int mes, const int anio, list<Fecha> fe
     aux.mes= mes;
     aux.anio= anio;
 
-    for( std:: list<Fecha>::iterator i = fechas.begin(); i != fechas.end(); i++ ){
-
-        if( (*i).dia == aux.dia &&  (*i).mes == aux.mes && (*i).anio == aux.anio ){
-
-            return false;
-        }
-
-    }
-
         fecha_ = aux;
 
-        fechas.push_back(fecha_);
         
         return true;
 
@@ -103,6 +93,9 @@ bool Ruta::setMonitor(  Monitor monitor){
 
 }
 
+bool Ruta::setNumero(int numeroruta){
+    numeroDeRuta_ = numeroruta;   
+}
 
 
 bool Ruta::setAforo( const int aforo){
@@ -145,7 +138,7 @@ int Ruta::addCliente(const Cliente client){
     }
 
     clientes_.push_back(client);
-
+    
     return 1;
 }
 

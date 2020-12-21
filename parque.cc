@@ -37,6 +37,17 @@ bool Parque::addSendero(Sendero sendero){
     cout << "El sendero ha sido registrado" << endl;
     return true;
 }
+bool Parque::deleteSendero(Sendero sendero){
+       for(vector<Sendero>::iterator it = senderos_.begin(); it != senderos_.end(); it++){
+        if(it->getCodigo() == sendero.getCodigo()){
+            senderos_.erase(it);
+            cout << "El sendero ha sido eliminado" << endl;
+            return true;
+        }
+    }
+    cout << "El sendero no ha sido encontrado" << endl;
+    return false;
+}
 bool Parque::Cancelar_ruta(Ruta ruta){
     
     for(vector<Ruta>::iterator it = rutas_.begin(); it != rutas_.end();it++){
@@ -49,22 +60,35 @@ bool Parque::Cancelar_ruta(Ruta ruta){
     cout << "No se ha encontrado la ruta que se querias borrar" << endl;
     return false;
 }
-Ruta Parque::Seleccionar_ruta(){
-    int numrut;
-    cout << "¿Cual es la ruta que quieres buscar?\n Dime el numero" << endl;
-    cin >> numrut;
+bool Parque::comprobarDNI(string DNI){
+      for (vector<Monitor>:: iterator it = monitores_.begin(); it != monitores_.end(); it++){
+        if(it->getDNI() == DNI){
+            return true;
+        }
+    } 
+    return false;
+}
+
+bool Parque::comprobarCodigo(string codigo){
+    for (vector<Sendero>:: iterator it = senderos_.begin(); it != senderos_.end(); it++){
+        if(it->getCodigo() == codigo){
+            return true;
+        }
+    } 
+    return false;
+}
+
+
+Ruta Parque::Seleccionar_ruta(int numrut){
     for (vector<Ruta>:: iterator it = rutas_.begin(); it != rutas_.end(); it++){
         if(it->getNumero() == numrut){
             return *it;
         }
     }    
 
-    cout << "ruta no encontrada \n";
 }
-Sendero Parque::Seleccionar_sendero(){
-    string codigo;
-    cout << "Dime el codigo del sendero que quieres seleccionar" << endl;
-    getline(cin,codigo);
+
+Sendero Parque::Seleccionar_sendero(string codigo){
     for (vector<Sendero>::iterator it = senderos_.begin(); it != senderos_.end(); it++)
     {
         if(it->getCodigo() == codigo){
@@ -72,7 +96,31 @@ Sendero Parque::Seleccionar_sendero(){
         }
     }    
 }
+bool Parque::AddRuta(Ruta ruta){
+      for( std::vector<Ruta>::iterator i = rutas_.begin(); i != rutas_.end(); i++ ){
 
+        if(ruta.getNumero() == i-> getNumero() ){
+            
+            return false;
+        }
+
+    }
+
+    rutas_.push_back(ruta);
+
+    return true;
+}
+bool Parque::DeleteRuta(Ruta ruta){
+      for( std::vector<Ruta>::iterator i = rutas_.begin(); i != rutas_.end(); i++ ){
+
+        if(ruta.getNumero() == i-> getNumero() ){
+            rutas_.erase(i);
+            return true;
+        }
+
+      }
+    return false;
+}
 
 bool Parque::escribir_datos_rutas(){
 
