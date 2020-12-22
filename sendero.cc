@@ -2,10 +2,10 @@
 
 using namespace std;
 //para poder hacer el commit
-Sendero::Sendero(string codigo,Parque parque,string dificultad,string disponibilidad,float longitud)
+Sendero::Sendero(string codigo,string dificultad,string disponibilidad,float longitud)
 {
     codigo_ = codigo;
-    parque_ = parque;
+    //parque_ = parque;
     dificultad_ = dificultad;
     disponibilidad_ = disponibilidad;
     longitud_ = longitud;
