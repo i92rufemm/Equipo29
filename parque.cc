@@ -17,9 +17,9 @@ bool Parque::setSuperficie(float superficie){
     return false;
 }
 bool Parque::addPremios(string premios){
-    int tamanio = premios_.size();
+    int tamanio = (int)premios_.size();
     premios_.push_back(premios);
-    if (tamanio < premios_.size())
+    if (tamanio < (int)premios_.size())
     {
         cout << "Se ha añadido el premio con exito " << endl;
         return true;
@@ -187,7 +187,7 @@ bool Parque::lee_rutas(){
 
 	if( fichero.fail() ){
 		cout << "Error al abrir fichero" << endl;
-		exit(1);
+		return false;
 	}
 
     while( getline( fichero, numeroDeRuta, ',' ) ){
@@ -213,6 +213,8 @@ bool Parque::lee_rutas(){
 	}
 
 	fichero.close();
+
+    return true;
 }
 
 //
@@ -380,7 +382,7 @@ bool Parque::lee_monitores_parque(){
 bool Parque::escribir_senderos_parque(){
     string nombre_fichero;
     string codigo,dificultad,disponibilidad;
-    float longitud;
+    
     char auxiliar[100] = "\0";
 
     ofstream fichero;
@@ -399,9 +401,6 @@ bool Parque::escribir_senderos_parque(){
 	} 
     for(std::vector<Sendero>::iterator i = senderos_.begin(); i != senderos_.end(); i++){
         fichero << i->getCodigo()<< ",";
-        fichero << i->getParque().getNombre() << ",";
-        fichero << i->getParque().getSuperficie() << ",";
-
         fichero << i->getDificultad() << ",";
         fichero << i->getDisponibilidad() << ",";
         fichero << i->getLongitud() << "\n";
@@ -423,15 +422,13 @@ bool Parque::lee_senderos_parque(){
 	}
 
     while(getline(fichero,codigo, ',')){
-        getline(fichero,nombreparque,',');
-        getline(fichero,superficie,',');
-        getline(fichero,ubicacion,',');
-        getline(fichero,localizacion,',');
+        
+        
         getline(fichero,dificultad,',');
         getline(fichero,disponibilidad,',');
         getline(fichero,longitud,'\n');
-        Parque parque(nombreparque,stof(superficie),stof(ubicacion),localizacion);
-        Sendero sendero(codigo,parque,dificultad,disponibilidad,stof(longitud));//codigo es un parametro obligatorio
+      
+        Sendero sendero(codigo,dificultad,disponibilidad,stof(longitud));//codigo es un parametro obligatorio
 
         senderos_.push_back(sendero);
     }

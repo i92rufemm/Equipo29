@@ -5,7 +5,7 @@ using namespace std;
 Sendero::Sendero(string codigo,string dificultad,string disponibilidad,float longitud)
 {
     codigo_ = codigo;
-    //parque_ = parque;
+   // parque_ = parque;
     dificultad_ = dificultad;
     disponibilidad_ = disponibilidad;
     longitud_ = longitud;

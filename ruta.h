@@ -9,7 +9,6 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-#include "ruta.h"
 #include "sendero.h"
 #include "Monitor.h"
 #include "Cliente.h"
@@ -26,11 +25,11 @@ class Ruta{
         float longitud_;
         struct Fecha fecha_;
         struct Hora hora_;
-        Monitor monitor_;
         int aforo_;
         int duracion_; //1 media jornada, 2 jornada completa
         vector <Cliente> clientes_;
         list <Sendero> senderos_;
+        Monitor monitor_;
 
     public:
 
@@ -55,7 +54,7 @@ class Ruta{
         bool setAforo( const int aforo);
         bool setDuracion(const int duracion);
         bool setNumero(int numeroruta);
-        bool sortByApellidos(const Cliente &lhs, const Cliente &rhs) { return lhs.getApellidos() < rhs.getApellidos(); }
+       // inline bool sortByApellidos(const Cliente &lhs, const Cliente &rhs) { return lhs.getApellidos() < rhs.getApellidos(); }
         void imprimirClientes();
 
         /* Introduce un cliente en la lista de clientes recibiendolo 

@@ -7,6 +7,10 @@ Cliente::Cliente(string Nombre, string Apellidos,int dia,int mes, int anio, stri
 	setDNI(DNI);
 	setCorreo(Correo);
 	setDiscapacidad(Discapacidad);
+	Fecha_.dia=dia;
+	Fecha_.mes=mes;
+	Fecha_.anio=anio;
+
 }
 
 void Cliente:: setFecha(int dia,int mes, int anio){

@@ -23,7 +23,7 @@
 
 int main(){
 
-    struct FechaTiempo local;
+    /*struct FechaTiempo local;
 
     Parque parque("por_defecto");
     Monitor monitor;
@@ -382,7 +382,7 @@ int main(){
 
     else
         cout << "Error al guardar datos \n";
-
+*/
 
     return 0;
 

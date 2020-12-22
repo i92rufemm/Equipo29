@@ -14,8 +14,9 @@ private:
     string dificultad_;
     string disponibilidad_;
     float longitud_;
+   // Parque parque_;
 public:
-    Sendero(string codigo,string dificultad = "", string disponibilidad = "",float longitud = 0.0);
+    Sendero(string codigo="",string dificultad = "", string disponibilidad = "",float longitud = 0.0);
     inline string getCodigo()const{return codigo_;}
     inline string getDificultad()const{return dificultad_;}
     inline float getLongitud()const{return longitud_;}
