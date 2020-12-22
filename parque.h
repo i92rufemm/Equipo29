@@ -29,8 +29,8 @@ private:
     list<string>premios_;
     vector<Sendero> senderos_;
     vector<Ruta> rutas_;
-    vector <Cliente> clientes_; // he tenido que añadir este vector para almacenar todos los clientes del parque
-    vector <Monitor> monitores_; // he tenido que añadir este vector para almacenar todos los monitores del parque
+    vector <Cliente> clientes_;
+    vector <Monitor> monitores_; 
 
 
 public:
@@ -59,7 +59,7 @@ public:
     bool comprobarDNI(string DNI);
     bool comprobarCodigo(string codigo);
 
-    //2º sprint cabecera funciones para guardar y leer los datos del fichero
+    
     bool escribir_datos_rutas();
     bool lee_rutas();
 

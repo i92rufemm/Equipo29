@@ -4,7 +4,6 @@
 #include "sendero.h"
 #include "Cliente.h"
 #include "ruta.h"
-//#include "parque.h"
 #include "gtest/gtest.h"
 
 using namespace std;

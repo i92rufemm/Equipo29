@@ -7,11 +7,9 @@ using namespace std;
 
 TEST(Sendero, ConstructorParametrosDefecto) {
 
-   // Parque p1("chupilandia");
     Sendero s("a1");
 
     EXPECT_EQ("a1", s.getCodigo());
-    //EXPECT_EQ("chupilandia", (s.getParque().getNombre()) );
     EXPECT_EQ("", s.getDificultad());
     EXPECT_EQ("", s.getDisponibilidad());
     EXPECT_EQ(0.0, s.getLongitud());
@@ -21,12 +19,10 @@ TEST(Sendero, ConstructorParametrosDefecto) {
 
 TEST(Sendero, ConstructorParametros) {
 
-    //Parque p1("chupilandia");
 
     Sendero s("a1","basica","abierto",2.5);
 
     EXPECT_EQ("a1", s.getCodigo());
-   // EXPECT_EQ("chupilandia", (s.getParque().getNombre()) );
     EXPECT_EQ("basica", s.getDificultad());
     EXPECT_EQ("abierto", s.getDisponibilidad());
     EXPECT_EQ(2.5, s.getLongitud());

@@ -81,7 +81,7 @@ ruta.o: ruta.cc ruta.h Cliente.cc Cliente.h Monitor.cc Monitor.h sendero.cc send
 
 parque.o: parque.cc parque.h ruta.cc ruta.h Cliente.cc Cliente.h Monitor.cc Monitor.h sendero.cc sendero.h estructuras.h
 
-#
+
 
 Cliente_unittest.o : Cliente_unittest.cc Cliente.h Cliente.cc
 

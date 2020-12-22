@@ -23,12 +23,12 @@
 
 int main(){
 
-    /*struct FechaTiempo local;
+    struct FechaTiempo local;
 
     Parque parque("por_defecto");
     Monitor monitor;
     Cliente cliente;
-    Sendero sendero("122",parque);
+    Sendero sendero("122");
     Ruta ruta(122,monitor);
     
     int op;
@@ -134,7 +134,6 @@ int main(){
                 cout << "Longitud(metros): ";
                 cin >> longitud;
                 sendero.setLongitud(longitud);
-                sendero.setParque(parque);
                 parque.addSendero(sendero);
 
             break;
@@ -382,7 +381,7 @@ int main(){
 
     else
         cout << "Error al guardar datos \n";
-*/
+
 
     return 0;
 

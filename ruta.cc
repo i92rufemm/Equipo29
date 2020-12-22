@@ -241,8 +241,6 @@ int Ruta::deleteSendero(const Sendero sendero){
 
 void Ruta::imprimirClientes(){
 
-    //sort(clientes_.begin(), clientes_.end(), sortByApellidos);
-
     for (Cliente &n : clientes_){
         cout << n.getDNI() << "   ";
         cout << n.getApellidos() << ", ";

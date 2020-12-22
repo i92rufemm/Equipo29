@@ -48,13 +48,12 @@ class Ruta{
 
 
         bool setLongitud();
-        bool setFecha(const int dia, const int mes, const int anio); // setFecha(5,2,2020, parque.getFechas() );
+        bool setFecha(const int dia, const int mes, const int anio); // setFecha(5,2,2020);
         bool setHora( const int hora, const int minuto);
         bool setMonitor(Monitor monitor);
         bool setAforo( const int aforo);
         bool setDuracion(const int duracion);
         bool setNumero(int numeroruta);
-       // inline bool sortByApellidos(const Cliente &lhs, const Cliente &rhs) { return lhs.getApellidos() < rhs.getApellidos(); }
         void imprimirClientes();
 
         /* Introduce un cliente en la lista de clientes recibiendolo 
